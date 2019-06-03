@@ -49,9 +49,11 @@ packages:
   gzx_dropdown_menu:
     dependency: "direct main"
     description:
-      path: ".."
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "27355506a9476a920346a03e1730a87d7a7ab602"
+      url: "https://github.com/GanZhiXiong/gzx_dropdown_menu.git"
+    source: git
     version: "0.0.1"
   matcher:
     dependency: transitive

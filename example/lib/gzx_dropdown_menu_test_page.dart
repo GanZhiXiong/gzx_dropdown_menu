@@ -91,37 +91,51 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                 ),
               ),
 //              SizedBox(height: 20,),
+              // 下拉菜单头部
               GZXDropDownHeader(
+                // 下拉的头部项，目前每一项，只能自定义显示的文字、图标、图标大小修改
                 items: [
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[0]),
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[1]),
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[2]),
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[3], iconData: Icons.filter_frames, iconSize: 18),
                 ],
+                // GZXDropDownHeader对应第一父级Stack的key
                 stackKey: _stackKey,
+                // controller用于控制menu的显示或隐藏
                 controller: _dropdownMenuController,
+                // 当点击头部项的事件，在这里可以进行页面跳转或openEndDrawer
                 onItemTap: (index) {
                   if (index == 3) {
                     _scaffoldKey.currentState.openEndDrawer();
                     _dropdownMenuController.hide();
                   }
                 },
-//                height: 40,
-//                color: Colors.red,
-//                borderWidth: 1,
-//                borderColor: Color(0xFFeeede6),
-//                dividerHeight: 20,
-//                dividerColor: Color(0xFFeeede6),
-//                style: TextStyle(color: Color(0xFF666666), fontSize: 13),
-//                dropDownStyle: TextStyle(
-//                  fontSize: 13,
-//                  color: Theme
-//                      .of(context)
-//                      .primaryColor,
-//                ),
-//                iconSize: 20,
-//                iconColor: Color(0xFFafada7),
-//                iconDropDownColor: Theme.of(context).primaryColor,
+                // 头部的高度
+                height: 40,
+                // 头部背景颜色
+                color: Colors.red,
+                // 头部边框宽度
+                borderWidth: 1,
+                // 头部边框颜色
+                borderColor: Color(0xFFeeede6),
+                // 分割线高度
+                dividerHeight: 20,
+                // 分割线颜色
+                dividerColor: Color(0xFFeeede6),
+                // 文字样式
+                style: TextStyle(color: Color(0xFF666666), fontSize: 13),
+                // 下拉时文字样式
+                dropDownStyle: TextStyle(
+                  fontSize: 13,
+                  color: Theme.of(context).primaryColor,
+                ),
+                // 图标大小
+                iconSize: 20,
+                // 图标颜色
+                iconColor: Color(0xFFafada7),
+                // 下拉时图标颜色
+                iconDropDownColor: Theme.of(context).primaryColor,
               ),
               Expanded(
                 child: ListView.separated(
@@ -138,9 +152,13 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
               ),
             ],
           ),
+          // 下拉菜单
           GZXDropDownMenu(
+            // controller用于控制menu的显示或隐藏
             controller: _dropdownMenuController,
+            // 下拉菜单显示或隐藏动画时长
             animationMilliseconds: 500,
+            // 下拉菜单，高度自定义，你想显示什么就显示什么，完全由你决定，你只需要在选择后调用_dropdownMenuController.hide();即可
             menus: [
               GZXDropdownMenuBuilder(
                   dropDownHeight: 40 * 8.0,
@@ -230,7 +248,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                         ? Text(
                             '${item}',
                             style: TextStyle(
-                              color: Colors.red,
+                              color: Theme.of(context).primaryColor,
                             ),
                           )
                         : Text('${item}')),
@@ -267,7 +285,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                                   ? Text(
                                       '${item}',
                                       style: TextStyle(
-                                        color: Colors.red,
+                                        color: Theme.of(context).primaryColor,
                                       ),
                                     )
                                   : Text('${item}'),
@@ -312,7 +330,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                   child: Text(
                     goodsSortCondition.name,
                     style: TextStyle(
-                      color: goodsSortCondition.isSelected ? Colors.red : Colors.black,
+                      color: goodsSortCondition.isSelected ? Theme.of(context).primaryColor : Colors.black,
                     ),
                   ),
                 ),

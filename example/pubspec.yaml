@@ -25,7 +25,9 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   gzx_dropdown_menu :
-    path : ../
+    git:
+      url: https://github.com/GanZhiXiong/gzx_dropdown_menu.git
+#    path : ../
 
 dev_dependencies:
   flutter_test:
