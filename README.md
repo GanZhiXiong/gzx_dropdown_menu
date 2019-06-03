@@ -24,7 +24,7 @@
 ### 1、添加gzx_dropdown_menu package
 打开pubspec.yaml文件
 添加如下代码
-```
+``` dart
   gzx_dropdown_menu :
     git:
       url: https://github.com/GanZhiXiong/gzx_dropdown_menu.git
@@ -42,7 +42,7 @@
 **~~算了~~🤪🤪🤪🙄还是简单说下吧！！！**  
 你只需要将GZXDropDownHeader和GZXDropDownMenu嵌套到你的代码中即可
 #### GZXDropDownHeader
-```
+``` dart
   // 下拉菜单头部
   GZXDropDownHeader(
     // 下拉的头部项，目前每一项，只能自定义显示的文字、图标、图标大小修改
@@ -91,7 +91,7 @@
   ),
 ```
 #### GZXDropDownMenu
-```
+``` dart
   // 下拉菜单
   GZXDropDownMenu(
     // controller用于控制menu的显示或隐藏
