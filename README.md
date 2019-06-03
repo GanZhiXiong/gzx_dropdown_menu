@@ -15,8 +15,7 @@
 ## Gif效果图
 分别是仿美团和淘宝的效果图   
 美团的代码就在这个仓库的example目录下  
-淘宝的代码在[Flutter 淘宝，点我打开]
-(https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
+淘宝的代码在[Flutter 淘宝，点我打开](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
 
 <img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="414" hegiht="736" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="414" hegiht="736" align=center />
 
@@ -40,7 +39,7 @@
 
 没空编辑文字了，而且说这么多还不如你直接运行下看下效果，然后看下代码，就知道如何使用了。
 
-**~~算了~~还是简单说下吧！！！**  
+**~~算了~~🤪🤪🤪🙄还是简单说下吧！！！**  
 你只需要将GZXDropDownHeader和GZXDropDownMenu嵌套到你的代码中即可
 #### GZXDropDownHeader
 ```
