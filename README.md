@@ -43,6 +43,7 @@
 **~~算了~~还是简单说下吧！！！**  
 你只需要将GZXDropDownHeader和GZXDropDownMenu嵌套到你的代码中即可
 #### GZXDropDownHeader
+**这里要注意了，这些参数不是必须要要写的，我写出来只是让你知道强大的自定义功能，实际上就前面三个参数是必填的**
 ```
   // 下拉菜单头部
   GZXDropDownHeader(

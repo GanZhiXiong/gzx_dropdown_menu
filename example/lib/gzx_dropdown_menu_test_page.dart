@@ -111,31 +111,31 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                     _dropdownMenuController.hide();
                   }
                 },
-                // 头部的高度
-                height: 40,
-                // 头部背景颜色
-                color: Colors.red,
-                // 头部边框宽度
-                borderWidth: 1,
-                // 头部边框颜色
-                borderColor: Color(0xFFeeede6),
-                // 分割线高度
-                dividerHeight: 20,
-                // 分割线颜色
-                dividerColor: Color(0xFFeeede6),
-                // 文字样式
-                style: TextStyle(color: Color(0xFF666666), fontSize: 13),
-                // 下拉时文字样式
-                dropDownStyle: TextStyle(
-                  fontSize: 13,
-                  color: Theme.of(context).primaryColor,
-                ),
-                // 图标大小
-                iconSize: 20,
-                // 图标颜色
-                iconColor: Color(0xFFafada7),
-                // 下拉时图标颜色
-                iconDropDownColor: Theme.of(context).primaryColor,
+//                // 头部的高度
+//                height: 40,
+//                // 头部背景颜色
+//                color: Colors.red,
+//                // 头部边框宽度
+//                borderWidth: 1,
+//                // 头部边框颜色
+//                borderColor: Color(0xFFeeede6),
+//                // 分割线高度
+//                dividerHeight: 20,
+//                // 分割线颜色
+//                dividerColor: Color(0xFFeeede6),
+//                // 文字样式
+//                style: TextStyle(color: Color(0xFF666666), fontSize: 13),
+//                // 下拉时文字样式
+//                dropDownStyle: TextStyle(
+//                  fontSize: 13,
+//                  color: Theme.of(context).primaryColor,
+//                ),
+//                // 图标大小
+//                iconSize: 20,
+//                // 图标颜色
+//                iconColor: Color(0xFFafada7),
+//                // 下拉时图标颜色
+//                iconDropDownColor: Theme.of(context).primaryColor,
               ),
               Expanded(
                 child: ListView.separated(
