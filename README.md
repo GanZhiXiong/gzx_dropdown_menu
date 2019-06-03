@@ -3,7 +3,7 @@
 1. Custom dropdown header
 2. Custom dropdown header item
 3. Custom dropdown menu
-4. Custom dropdown menu show animation time
+* Custom dropdown menu show animation time
 5. Control dropdown menu show or hide
  
 #### 如果对您有帮助，麻烦给个Star，您的支持是我持续更新的动力。
