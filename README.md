@@ -1,7 +1,7 @@
 # gzx_dropdown_menu
 自定义功能强大的下拉筛选菜单flutter package
- - Custom dropdown header
- + Custom dropdown header item
+- Custom dropdown header
++ Custom dropdown header item
  * Custom dropdown menu
  * Custom dropdown menu show animation time
  * Control dropdown menu show or hide
