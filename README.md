@@ -18,7 +18,11 @@
 美团的代码就在这个仓库的example目录下  
 淘宝的代码在[Flutter 淘宝，点我打开](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
 
-<img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="414" hegiht="736" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="414" hegiht="736" align=center />
+![](https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif)
+![](https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif)  
+
+[//]: # (
+<img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="414" hegiht="736" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="414" hegiht="736" align=center />)
 
 ## 如何使用
 目前已发布到Pub，你可以在Pub官网查看最新的版本和更新说明！[点我去Pub官网查看](https://pub.flutter-io.cn/packages/gzx_dropdown_menu)
