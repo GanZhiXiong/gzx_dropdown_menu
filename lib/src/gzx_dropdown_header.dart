@@ -61,12 +61,12 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
   }
 
   _onController() {
-    print(widget.controller.menuIndex);
+//    print(widget.controller.menuIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    print('_GZXDropDownHeaderState.build');
+//    print('_GZXDropDownHeaderState.build');
 
     widget.dropDownStyle ??= TextStyle(color: Theme.of(context).primaryColor, fontSize: 13);
     widget.iconDropDownColor ??= Theme.of(context).primaryColor;
@@ -111,12 +111,11 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
         final RenderBox dropDownItemRenderBox = _keyDropDownHearder.currentContext.findRenderObject();
 
         var position = dropDownItemRenderBox.localToGlobal(Offset.zero, ancestor: overlay);
-        print("POSITION : $position ");
+//        print("POSITION : $position ");
         var size = dropDownItemRenderBox.size;
-        print("SIZE : $size");
+//        print("SIZE : $size");
 
         widget.controller.dropDownHearderHeight = size.height + position.dy;
-//        widget.controller.dropDownHearderHeight = dropDownItemRenderBox.size.height;
 
         if (widget.controller.isShow) {
           widget.controller.hide();

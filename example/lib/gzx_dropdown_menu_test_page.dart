@@ -5,7 +5,7 @@ class SortCondition {
   String name;
   bool isSelected;
 
-  SortCondition({this.name, this.isSelected}) {}
+  SortCondition({this.name, this.isSelected});
 }
 
 class GZXDropDownMenuTestPage extends StatefulWidget {
@@ -162,7 +162,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
             menus: [
               GZXDropdownMenuBuilder(
                   dropDownHeight: 40 * 8.0,
-                  dropDownWidget: _buildQuanChengWidget((selectValue) {
+                  dropDownWidget: _buildAddressWidget((selectValue) {
                     _dropDownHeaderItemStrings[0] = selectValue;
                     _dropdownMenuController.hide();
                     setState(() {});
@@ -186,17 +186,6 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                   })),
             ],
           ),
-
-//          Positioned(
-//              width: 200,
-//              height: 200,
-//              left: 0,
-//              top: 0,
-//              child: Container(
-//                color: Colors.red,
-//                width: 200,
-//                height: 300,
-//              ))
         ],
       ),
     );
@@ -207,7 +196,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
 
   int _selectSecondLevelIndex = -1;
 
-  _buildQuanChengWidget(void itemOnTap(String selectValue)) {
+  _buildAddressWidget(void itemOnTap(String selectValue)) {
 //    List firstLevels = new List<int>.filled(15, 0);
     List firstLevels = new List<String>.generate(15, (int index) {
       if (index == 0) {
@@ -216,7 +205,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
       return '$index区';
     });
 
-    List secondtLevels = new List<String>.generate(15, (int index) {
+    List secondLevels = new List<String>.generate(15, (int index) {
       if (index == 0) {
         return '全部';
       }
@@ -246,12 +235,12 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                     alignment: Alignment.center,
                     child: _selectTempFirstLevelIndex == index
                         ? Text(
-                            '${item}',
+                            '$item',
                             style: TextStyle(
                               color: Theme.of(context).primaryColor,
                             ),
                           )
-                        : Text('${item}')),
+                        : Text('$item')),
               );
             }).toList(),
           ),
@@ -262,8 +251,8 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
             child: _selectTempFirstLevelIndex == 0
                 ? Container()
                 : ListView(
-                    children: secondtLevels.map((item) {
-                      int index = secondtLevels.indexOf(item);
+                    children: secondLevels.map((item) {
+                      int index = secondLevels.indexOf(item);
                       return GestureDetector(
                           onTap: () {
                             _selectSecondLevelIndex = index;
@@ -283,12 +272,12 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                               ),
                               _selectFirstLevelIndex == _selectTempFirstLevelIndex && _selectSecondLevelIndex == index
                                   ? Text(
-                                      '${item}',
+                                      '$item',
                                       style: TextStyle(
                                         color: Theme.of(context).primaryColor,
                                       ),
                                     )
-                                  : Text('${item}'),
+                                  : Text('$item'),
                             ]),
                           ));
                     }).toList(),
@@ -299,7 +288,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
     );
   }
 
-  _buildConditionListWidget(items, void itemOnTap(SortCondition)) {
+  _buildConditionListWidget(items, void itemOnTap(sortCondition)) {
     return ListView.separated(
       shrinkWrap: true,
       scrollDirection: Axis.vertical,

@@ -24,13 +24,10 @@
 目前已发布到Pub，你可以在Pub官网查看最新的版本和更新说明！[点我去Pub官网查看](https://pub.flutter-io.cn/packages/gzx_dropdown_menu)
 ### 1、添加gzx_dropdown_menu package
 打开pubspec.yaml文件
-如我想使用1.0.0版本，则添加如下代码
+如我想使用1.0.1版本，则添加如下代码
 ``` dart
-  gzx_dropdown_menu : ^1.0.0
+  gzx_dropdown_menu : ^1.0.1
 ```
-添加位置如下图所示  
-![](https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/1.png)
-
 添加后打开Terminal，执行flutter packages get
 
 ### 2、使用
