@@ -9,6 +9,11 @@
  
 #### 如果对您有帮助，麻烦给个Star，您的支持是我持续更新的动力。
 
+### 相关Repository  
+[Flutter 淘宝App](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
+### 相关文章  
+[掘金](https://juejin.im/user/5cf10106518825189f6fa229/posts)
+
 ## 导航
 - [Gif效果图](#Gif效果图)
 - [如何使用](#如何使用)
