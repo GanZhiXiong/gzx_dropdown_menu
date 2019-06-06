@@ -1,5 +1,6 @@
 # gzx_dropdown_menu
 自定义功能强大的下拉筛选菜单flutter package
+
  * Custom dropdown header
  * Custom dropdown header item
  * Custom dropdown menu
@@ -20,14 +21,12 @@
 <img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="414" hegiht="736" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="414" hegiht="736" align=center />
 
 ## 如何使用
-由于最近被qiang，所以没有发布到Pub，后续会发布到Pub
+目前已发布到Pub，你可以在Pub官网查看最新的版本和更新说明！[点我去Pub官网查看](https://pub.flutter-io.cn/packages/gzx_dropdown_menu)
 ### 1、添加gzx_dropdown_menu package
 打开pubspec.yaml文件
-添加如下代码
+如我想使用1.0.0版本，则添加如下代码
 ``` dart
-  gzx_dropdown_menu :
-    git:
-      url: https://github.com/GanZhiXiong/gzx_dropdown_menu.git
+  gzx_dropdown_menu : ^1.0.0
 ```
 添加位置如下图所示  
 ![](https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/1.png)

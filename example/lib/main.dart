@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'gzx_dropdown_menu_test_page.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  print('main');
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
