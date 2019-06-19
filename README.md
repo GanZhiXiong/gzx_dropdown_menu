@@ -7,7 +7,7 @@
  * Custom dropdown menu show animation time
  * Control dropdown menu show or hide
  
-#### 如果对您有帮助，麻烦给个Star，您的支持是我持续更新的动力。
+## 开源不易，麻烦给个Star吧！我会根据大家的关注度和个人时间持续更新代码！
 
 ### 相关Repository  
 [Flutter 淘宝App](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
