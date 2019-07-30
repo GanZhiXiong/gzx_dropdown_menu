@@ -24,7 +24,7 @@ class GZXDropDownMenu extends StatefulWidget {
 class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProviderStateMixin {
   bool _isShowDropDownItemWidget = false;
   bool _isShowMask = false;
-
+  bool _isControllerDisposed = false;
   Animation<double> _animation;
   AnimationController _controller;
 
@@ -52,6 +52,7 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
   dispose() {
     _controller.dispose();
+    _isControllerDisposed = true;
     super.dispose();
   }
 
@@ -69,6 +70,8 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
         //这行如果不写，没有动画效果
         setState(() {});
       });
+
+    if (_isControllerDisposed) return;
 
     if (_animation.status == AnimationStatus.completed) {
       _controller.reverse();
