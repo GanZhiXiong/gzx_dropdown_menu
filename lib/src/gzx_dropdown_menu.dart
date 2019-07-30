@@ -70,6 +70,8 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
         setState(() {});
       });
 
+    if (_controller == null) return;
+
     if (_animation.status == AnimationStatus.completed) {
       _controller.reverse();
     } else {
