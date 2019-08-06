@@ -14,7 +14,7 @@ class GZXDropDownMenuTestPage extends StatefulWidget {
 }
 
 class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
-  List<String> _dropDownHeaderItemStrings = ['全城', '品牌', '价格低', '筛选'];
+  List<String> _dropDownHeaderItemStrings = ['全城', '品牌', '距离近', '筛选'];
   List<SortCondition> _brandSortConditions = [];
   List<SortCondition> _distanceSortConditions = [];
   SortCondition _selectBrandSortCondition;
@@ -51,6 +51,8 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
 
     _distanceSortConditions.add(SortCondition(name: '距离近', isSelected: true));
     _distanceSortConditions.add(SortCondition(name: '价格低', isSelected: false));
+    _distanceSortConditions.add(SortCondition(name: '价格高', isSelected: false));
+
     _selectDistanceSortCondition = _distanceSortConditions[0];
   }
 
@@ -71,6 +73,13 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
       endDrawer: Container(
         margin: EdgeInsets.only(left: MediaQuery.of(context).size.width / 4, top: 0),
         color: Colors.white,
+//        child: Container(color: Colors.red,child: Padding(
+//          padding: const EdgeInsets.all(8.0),
+//          child: TextField(),
+//        ),),
+        child: ListView(
+          children: <Widget>[TextField()],
+        ),
       ),
       body: Stack(
         key: _stackKey,
@@ -108,7 +117,6 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                 onItemTap: (index) {
                   if (index == 3) {
                     _scaffoldKey.currentState.openEndDrawer();
-                    _dropdownMenuController.hide();
                   }
                 },
 //                // 头部的高度
@@ -179,8 +187,8 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
               GZXDropdownMenuBuilder(
                   dropDownHeight: 40.0 * _distanceSortConditions.length,
                   dropDownWidget: _buildConditionListWidget(_distanceSortConditions, (value) {
-                    _dropDownHeaderItemStrings[2] = _selectDistanceSortCondition.name;
                     _selectDistanceSortCondition = value;
+                    _dropDownHeaderItemStrings[2] = _selectDistanceSortCondition.name;
                     _dropdownMenuController.hide();
                     setState(() {});
                   })),
@@ -193,7 +201,6 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
 
   int _selectTempFirstLevelIndex = 0;
   int _selectFirstLevelIndex = 0;
-
   int _selectSecondLevelIndex = -1;
 
   _buildAddressWidget(void itemOnTap(String selectValue)) {
@@ -288,7 +295,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
     );
   }
 
-  _buildConditionListWidget(items, void itemOnTap(sortCondition)) {
+  _buildConditionListWidget(items, void itemOnTap(SortCondition sortCondition)) {
     return ListView.separated(
       shrinkWrap: true,
       scrollDirection: Axis.vertical,

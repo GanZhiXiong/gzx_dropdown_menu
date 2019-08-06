@@ -90,7 +90,7 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
     if (_isShowMask) {
       return GestureDetector(
         onTap: () {
-          _hideDropDownItemWidget();
+          widget.controller.hide();
         },
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -107,6 +107,10 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
   Widget _buildDropDownWidget() {
     int menuIndex = widget.controller.menuIndex;
+
+    if (menuIndex >= widget.menus.length) {
+      return Container();
+    }
 
     return Positioned(
         width: MediaQuery.of(context).size.width,

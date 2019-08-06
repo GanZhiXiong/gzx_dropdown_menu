@@ -61,6 +61,7 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
   }
 
   _onController() {
+    setState(() {});
 //    print(widget.controller.menuIndex);
   }
 
