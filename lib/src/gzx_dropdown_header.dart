@@ -120,13 +120,23 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
 
         widget.controller.dropDownHearderHeight = size.height + position.dy;
 
-        if (widget.controller.isShow) {
-          widget.controller.hide();
+        if (index == menuIndex) {
+          if (widget.controller.isShow) {
+            widget.controller.hide();
+          } else {
+            widget.controller.show(index);
+          }
+        } else {
+          if (widget.controller.isShow) {
+            widget.controller.hide();
+          }
+          widget.controller.show(index);
         }
-        widget.controller.show(index);
+
         if (widget.onItemTap != null) {
           widget.onItemTap(index);
         }
+
         setState(() {});
       },
       child: Container(
