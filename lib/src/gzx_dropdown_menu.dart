@@ -13,8 +13,9 @@ class GZXDropDownMenu extends StatefulWidget {
   final GZXDropdownMenuController controller;
   final List<GZXDropdownMenuBuilder> menus;
   final int animationMilliseconds;
+  final Color maskColor;
 
-  const GZXDropDownMenu({Key key, @required this.controller, @required this.menus, this.animationMilliseconds = 500})
+  const GZXDropDownMenu({Key key, @required this.controller, @required this.menus, this.animationMilliseconds = 500, this.maskColor= const Color.fromRGBO(0, 0, 0, 0.5)})
       : super(key: key);
 
   @override
@@ -95,7 +96,7 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: Color.fromRGBO(0, 0, 0, 0.1),
+          color: widget.maskColor,
         ),
       );
     } else {
