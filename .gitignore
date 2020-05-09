@@ -26,6 +26,8 @@
 .pub-cache/
 .pub/
 build/
+# Remove the following pattern if you wish to check in your lock file
+pubspec.lock
 
 # Android related
 **/android/**/gradle-wrapper.jar
