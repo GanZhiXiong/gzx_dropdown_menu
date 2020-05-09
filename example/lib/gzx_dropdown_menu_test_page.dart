@@ -116,6 +116,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                 // 当点击头部项的事件，在这里可以进行页面跳转或openEndDrawer
                 onItemTap: (index) {
                   if (index == 3) {
+                    _dropdownMenuController.hide();
                     _scaffoldKey.currentState.openEndDrawer();
                   }
                 },
