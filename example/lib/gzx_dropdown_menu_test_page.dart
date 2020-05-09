@@ -167,6 +167,8 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
             controller: _dropdownMenuController,
             // 下拉菜单显示或隐藏动画时长
             animationMilliseconds: 500,
+            // 下拉后遮罩颜色
+//            maskColor: Theme.of(context).primaryColor,
             // 下拉菜单，高度自定义，你想显示什么就显示什么，完全由你决定，你只需要在选择后调用_dropdownMenuController.hide();即可
             menus: [
               GZXDropdownMenuBuilder(
