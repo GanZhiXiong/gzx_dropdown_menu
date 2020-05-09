@@ -15,7 +15,12 @@ class GZXDropDownMenu extends StatefulWidget {
   final int animationMilliseconds;
   final Color maskColor;
 
-  const GZXDropDownMenu({Key key, @required this.controller, @required this.menus, this.animationMilliseconds = 500, this.maskColor= const Color.fromRGBO(0, 0, 0, 0.5)})
+  const GZXDropDownMenu(
+      {Key key,
+      @required this.controller,
+      @required this.menus,
+      this.animationMilliseconds = 500,
+      this.maskColor = const Color.fromRGBO(0, 0, 0, 0.5)})
       : super(key: key);
 
   @override
@@ -71,21 +76,21 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
     var dropDownHeight2 = widget.menus[menuIndex].dropDownHeight;
     _animation = new Tween(begin: 0.0, end: dropDownHeight2).animate(_controller)
       ..addListener(() {
-        print('${_animation.value}');
-        var heightScale  = _animation.value / dropDownHeight2;
+//        print('${_animation.value}');
+        var heightScale = _animation.value / dropDownHeight2;
         _maskColorOpacity = widget.maskColor.opacity * heightScale;
-        print('$_maskColorOpacity');
+//        print('$_maskColorOpacity');
         //这行如果不写，没有动画效果
         setState(() {});
       });
 
     if (_isControllerDisposed) return;
 
-    print('${widget.controller.isShow}');
+//    print('${widget.controller.isShow}');
 
     if (widget.controller.isShow) {
       _controller.forward();
-    } else if (widget.controller.isShowHideAnimation){
+    } else if (widget.controller.isShowHideAnimation) {
       _controller.reverse();
     } else {
       _controller.value = 0;
