@@ -29,6 +29,8 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
   Animation<double> _animation;
   AnimationController _controller;
 
+  double _maskColorOpacity;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -66,8 +68,13 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
     _isShowDropDownItemWidget = !_isShowDropDownItemWidget;
     _isShowMask = !_isShowMask;
 
-    _animation = new Tween(begin: 0.0, end: widget.menus[menuIndex].dropDownHeight).animate(_controller)
+    var dropDownHeight2 = widget.menus[menuIndex].dropDownHeight;
+    _animation = new Tween(begin: 0.0, end: dropDownHeight2).animate(_controller)
       ..addListener(() {
+        print('${_animation.value}');
+        var heightScale  = _animation.value / dropDownHeight2;
+        _maskColorOpacity = widget.maskColor.opacity * heightScale;
+        print('$_maskColorOpacity');
         //这行如果不写，没有动画效果
         setState(() {});
       });
@@ -100,7 +107,8 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: widget.maskColor,
+          color: widget.maskColor.withOpacity(_maskColorOpacity),
+//          color: widget.maskColor,
         ),
       );
     } else {
