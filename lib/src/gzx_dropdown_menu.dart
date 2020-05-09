@@ -73,10 +73,14 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
     if (_isControllerDisposed) return;
 
-    if (!widget.controller.isShow) {
-      _controller.value = 0;
-    } else {
+    print('${widget.controller.isShow}');
+
+    if (widget.controller.isShow) {
       _controller.forward();
+    } else if (widget.controller.isShowHideAnimation){
+      _controller.reverse();
+    } else {
+      _controller.value = 0;
     }
   }
 
