@@ -7,7 +7,7 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
  * Custom dropdown menu animation
  * Control dropdown menu show or hide
 
-## 开源不易，麻烦给个Star★吧！我会根据大家的关注度和个人时间持续更新代码！
+## 开源不易🙀🙀🙀，麻烦给个Star⭐️吧！我会根据大家的关注度和个人时间持续更新代码！
 **如你想接收更新消息，你可以Watch下，有问题请提到Issues。**
 
 #### 相关Repository
