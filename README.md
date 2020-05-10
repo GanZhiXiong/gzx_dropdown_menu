@@ -1,30 +1,31 @@
 # gzx_dropdown_menu
-自定义功能强大的下拉筛选菜单flutter package
+A custom is strong dropdown menu for Flutter. Easy to use and powerful for customization, it's up to you what you want to display in the dropdown menu!
 
  * Custom dropdown header
  * Custom dropdown header item
  * Custom dropdown menu
- * Custom dropdown menu show animation time
+ * Custom dropdown menu animation
  * Control dropdown menu show or hide
- 
-## 开源不易，麻烦给个Star吧！我会根据大家的关注度和个人时间持续更新代码！
 
-### 相关Repository  
-[Flutter 淘宝App](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
-### 相关文章  
-[掘金](https://juejin.im/user/5cf10106518825189f6fa229/posts)
+## 开源不易，麻烦给个Star★吧！我会根据大家的关注度和个人时间持续更新代码！
+**如你想接收更新消息，你可以Watch下，有问题请提到Issues。**
+
+#### 相关Repository
+* [Flutter 淘宝App](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
+#### 相关文章
+* [掘金](https://juejin.im/user/5cf10106518825189f6fa229/posts)
 
 ## 导航
 - [Gif效果图](#Gif效果图)
 - [如何使用](#如何使用)
 
 ## Gif效果图
-分别是仿美团和淘宝的效果图   
+分别是仿美团和淘宝的效果图  
 美团的代码就在这个仓库的example目录下  
 淘宝的代码在[Flutter 淘宝，点我打开](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
 
 ![](https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif)
-![](https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif)  
+![](https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif)
 
 [//]: # (
 <img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="414" hegiht="736" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="414" hegiht="736" align=center />)
@@ -33,14 +34,14 @@
 目前已发布到Pub，你可以在Pub官网查看最新的版本和更新说明！[点我去Pub官网查看](https://pub.flutter-io.cn/packages/gzx_dropdown_menu)
 ### 1、添加gzx_dropdown_menu package
 打开pubspec.yaml文件
-如我想使用1.0.1版本，则添加如下代码
+添加如下代码
 ``` dart
-  gzx_dropdown_menu : ^1.0.1
+  gzx_dropdown_menu : ^2.0.0
 ```
 添加后打开Terminal，执行flutter packages get
 
 ### 2、使用
-打开本仓库example项目下的gzx_dropdown_menu_test_page.dart文件自己看。  
+打开本仓库example项目下的gzx_dropdown_menu_test_page.dart文件自己看。
 
 没空编辑文字了，而且说这么多还不如你直接运行下看下效果，然后看下代码，就知道如何使用了。
 
@@ -104,6 +105,8 @@
     controller: _dropdownMenuController,
     // 下拉菜单显示或隐藏动画时长
     animationMilliseconds: 500,
+    // 下拉后遮罩颜色
+    maskColor: Colors.red.withOpacity(0.5),
     // 下拉菜单，高度自定义，你想显示什么就显示什么，完全由你决定，你只需要在选择后调用_dropdownMenuController.hide();即可
     menus: [
       GZXDropdownMenuBuilder(

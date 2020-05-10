@@ -24,7 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
-#  gzx_dropdown_menu : ^1.0.0
+#  gzx_dropdown_menu : ^2.0.0
 
 #   gzx_dropdown_menu :
 #    git:
