@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 enum DropDownType { current, another }
 
 class GZXDropdownMenuController extends ChangeNotifier {
-  double dropDownHearderHeight;
+  double dropDownHeaderHeight;
 
   int menuIndex = 0;
 
