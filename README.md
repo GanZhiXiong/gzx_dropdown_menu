@@ -27,6 +27,8 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 ![](https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif)
 ![](https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif)
 
+<img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="414" hegiht="736" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="414" hegiht="736" align=center />
+
 [//]: # (
 <img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="414" hegiht="736" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="414" hegiht="736" align=center />)
 
