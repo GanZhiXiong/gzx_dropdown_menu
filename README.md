@@ -24,6 +24,11 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 美团的代码就在这个仓库的example目录下  
 淘宝的代码在[Flutter 淘宝，点我打开](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
 
+<!---
+这样写pub上Readme图片不能显示
+<img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="439" height="860" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="439" height="860" align=center />
+--->
+
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif"><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/raw/master/preview_images/美团.gif" width="439" height="860" align="center" style="max-width:100%;"></a><a target="_blank" rel="noopener noreferrer" href="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif"><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/raw/master/preview_images/淘宝.gif" width="439" height="860" align="center" style="max-width:100%;"></a>
 
 [//]: # (
