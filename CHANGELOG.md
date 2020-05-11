@@ -1,3 +1,6 @@
+## [2.0.0+1] - [2020-05-11]
+* Update Readme
+
 ## [2.0.0] - [2020-05-10]
 ### ✨ New Features
 * Mask color animation display
