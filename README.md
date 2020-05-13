@@ -1,6 +1,10 @@
 # gzx_dropdown_menu
 
-[![Pub](https://img.shields.io/pub/v/dio.svg?style=flat-square)](https://pub.dev/packages/gzx_dropdown_menu)
+[![Pub Package](https://img.shields.io/pub/v/gzx_dropdown_menu.svg)](https://pub.dev/packages/gzx_dropdown_menu)
+[![GitHub Stars](https://img.shields.io/github/stars/ganzhixiong/gzx_dropdown_menu.svg)](https://github.com/ganzhixiong/gzx_dropdown_menu/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/ganzhixiong/gzx_dropdown_menu.svg)](https://github.com/ganzhixiong/gzx_dropdown_menu/network)
+[![GitHub Issues](https://img.shields.io/github/issues/ganzhixiong/gzx_dropdown_menu.svg)](https://github.com/ganzhixiong/gzx_dropdown_menu/issues)
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/ganzhixiong/gzx_dropdown_menu/master/LICENSE)
 
 A custom is strong dropdown menu for Flutter. Easy to use and powerful for customization, it's up to you what you want to display in the dropdown menu!
 
