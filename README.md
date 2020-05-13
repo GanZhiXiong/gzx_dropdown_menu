@@ -1,4 +1,7 @@
 # gzx_dropdown_menu
+
+[![Pub](https://img.shields.io/pub/v/dio.svg?style=flat-square)](https://pub.dev/packages/gzx_dropdown_menu)
+
 A custom is strong dropdown menu for Flutter. Easy to use and powerful for customization, it's up to you what you want to display in the dropdown menu!
 
  * Custom dropdown header
