@@ -102,6 +102,7 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
       return GestureDetector(
         onTap: () {
           widget.controller.hide();
+          FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Container(
           width: MediaQuery.of(context).size.width,
