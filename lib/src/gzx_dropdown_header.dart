@@ -140,40 +140,43 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
         setState(() {});
       },
       child: Container(
-          color: widget.color,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Flexible(
-                        child: Text(
+        color: widget.color,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Flexible(
+                    child: Text(
                       item.title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: _isShowDropDownItemWidget ? _dropDownStyle : widget.style,
-                    )),
-                    Icon(
-                      !_isShowDropDownItemWidget
-                          ? item.iconData ?? Icons.arrow_drop_down
-                          : item.iconData ?? Icons.arrow_drop_up,
-                      color: _isShowDropDownItemWidget ? _iconDropDownColor : widget.iconColor,
-                      size: item.iconSize ?? widget.iconSize,
+                      style: _isShowDropDownItemWidget ? _dropDownStyle : widget.style.merge(item.style),
                     ),
-                  ],
-                ),
+                  ),
+                  Icon(
+                    !_isShowDropDownItemWidget ? item.iconData ?? Icons.arrow_drop_down : item.iconData ?? Icons.arrow_drop_up,
+                    color: _isShowDropDownItemWidget ? _iconDropDownColor : item?.style?.color ?? widget.iconColor,
+                    size: item.iconSize ?? widget.iconSize,
+                  ),
+                ],
               ),
-              index == widget.items.length - 1
-                  ? Container()
-                  : Container(
-                      height: widget.dividerHeight,
-                      decoration:
-                          BoxDecoration(border: Border(right: BorderSide(color: widget.dividerColor, width: 1))),
-                    )
-            ],
-          )),
+            ),
+            index == widget.items.length - 1
+                ? Container()
+                : Container(
+                    height: widget.dividerHeight,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        right: BorderSide(color: widget.dividerColor, width: 1),
+                      ),
+                    ),
+                  )
+          ],
+        ),
+      ),
     );
   }
 }
@@ -182,10 +185,6 @@ class GZXDropDownHeaderItem {
   final String title;
   final IconData iconData;
   final double iconSize;
-
-  GZXDropDownHeaderItem(
-    this.title, {
-    this.iconData,
-    this.iconSize,
-  });
+  final TextStyle style;
+  GZXDropDownHeaderItem(this.title, {this.iconData, this.iconSize, this.style});
 }

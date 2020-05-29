@@ -106,7 +106,10 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                 items: [
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[0]),
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[1]),
-                  GZXDropDownHeaderItem(_dropDownHeaderItemStrings[2]),
+                  GZXDropDownHeaderItem(
+                    _dropDownHeaderItemStrings[2],
+                    style: TextStyle(color: Colors.yellow),
+                  ),
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[3], iconData: Icons.filter_frames, iconSize: 18),
                 ],
                 // GZXDropDownHeader对应第一父级Stack的key
@@ -183,8 +186,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                   dropDownHeight: 40 * 8.0,
                   dropDownWidget: _buildConditionListWidget(_brandSortConditions, (value) {
                     _selectBrandSortCondition = value;
-                    _dropDownHeaderItemStrings[1] =
-                        _selectBrandSortCondition.name == '全部' ? '品牌' : _selectBrandSortCondition.name;
+                    _dropDownHeaderItemStrings[1] = _selectBrandSortCondition.name == '全部' ? '品牌' : _selectBrandSortCondition.name;
                     _dropdownMenuController.hide();
                     setState(() {});
                   })),
