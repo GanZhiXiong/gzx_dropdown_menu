@@ -36,6 +36,8 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
   double _maskColorOpacity;
 
+  double _dropDownHeight;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -59,7 +61,10 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
   }
 
   dispose() {
-    _controller.dispose();
+    _animation?.removeListener(_animationListener);
+    _animation?.removeStatusListener(_animationStatusListener);
+    widget.controller?.removeListener(_onController);
+    _controller?.dispose();
     _isControllerDisposed = true;
     super.dispose();
   }
@@ -71,18 +76,17 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
     }
 
     _isShowDropDownItemWidget = !_isShowDropDownItemWidget;
-    _isShowMask = !_isShowMask;
+    if (!_isShowMask) {
+      _isShowMask = true;
+    }
 
-    var dropDownHeight2 = widget.menus[menuIndex].dropDownHeight;
-    _animation = new Tween(begin: 0.0, end: dropDownHeight2).animate(_controller)
-      ..addListener(() {
-//        print('${_animation.value}');
-        var heightScale = _animation.value / dropDownHeight2;
-        _maskColorOpacity = widget.maskColor.opacity * heightScale;
-//        print('$_maskColorOpacity');
-        //这行如果不写，没有动画效果
-        setState(() {});
-      });
+    _dropDownHeight = widget.menus[menuIndex].dropDownHeight;
+
+    _animation?.removeListener(_animationListener);
+    _animation?.removeStatusListener(_animationStatusListener);
+    _animation = new Tween(begin: 0.0, end: _dropDownHeight).animate(_controller)
+      ..addListener(_animationListener)
+      ..addStatusListener(_animationStatusListener);
 
     if (_isControllerDisposed) return;
 
@@ -95,6 +99,32 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
     } else {
       _controller.value = 0;
     }
+  }
+
+  void _animationStatusListener(AnimationStatus status) {
+    switch (status) {
+      case AnimationStatus.dismissed:
+//        print('dismissed');
+        _isShowMask = false;
+        break;
+      case AnimationStatus.forward:
+        // TODO: Handle this case.
+        break;
+      case AnimationStatus.reverse:
+        // TODO: Handle this case.
+        break;
+      case AnimationStatus.completed:
+//        print('completed');
+        break;
+    }
+  }
+
+  void _animationListener() {
+    var heightScale = _animation.value / _dropDownHeight;
+    _maskColorOpacity = widget.maskColor.opacity * heightScale;
+//    print('$_maskColorOpacity');
+    //这行如果不写，没有动画效果
+    setState(() {});
   }
 
   Widget _mask() {
