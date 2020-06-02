@@ -9,18 +9,24 @@ class GZXDropdownMenuBuilder {
   GZXDropdownMenuBuilder({@required this.dropDownWidget, @required this.dropDownHeight});
 }
 
+typedef DropdownMenuChange = void Function(bool isShow, int index);
+
 class GZXDropDownMenu extends StatefulWidget {
   final GZXDropdownMenuController controller;
   final List<GZXDropdownMenuBuilder> menus;
   final int animationMilliseconds;
   final Color maskColor;
+  final DropdownMenuChange dropdownMenuChanging;
+  final DropdownMenuChange dropdownMenuChanged;
 
   const GZXDropDownMenu(
       {Key key,
       @required this.controller,
       @required this.menus,
       this.animationMilliseconds = 500,
-      this.maskColor = const Color.fromRGBO(0, 0, 0, 0.5)})
+      this.maskColor = const Color.fromRGBO(0, 0, 0, 0.5),
+      this.dropdownMenuChanging,
+      this.dropdownMenuChanged})
       : super(key: key);
 
   @override
@@ -37,6 +43,8 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
   double _maskColorOpacity;
 
   double _dropDownHeight;
+
+  int _currentMenuIndex;
 
   @override
   void initState() {
@@ -70,17 +78,20 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
   }
 
   _showDropDownItemWidget() {
-    int menuIndex = widget.controller.menuIndex;
-    if (menuIndex >= widget.menus.length || widget.menus[menuIndex] == null) {
+    _currentMenuIndex = widget.controller.menuIndex;
+    if (_currentMenuIndex >= widget.menus.length || widget.menus[_currentMenuIndex] == null) {
       return;
     }
 
     _isShowDropDownItemWidget = !_isShowDropDownItemWidget;
+    if (widget.dropdownMenuChanging != null) {
+      widget.dropdownMenuChanging(_isShowDropDownItemWidget, _currentMenuIndex);
+    }
     if (!_isShowMask) {
       _isShowMask = true;
     }
 
-    _dropDownHeight = widget.menus[menuIndex].dropDownHeight;
+    _dropDownHeight = widget.menus[_currentMenuIndex].dropDownHeight;
 
     _animation?.removeListener(_animationListener);
     _animation?.removeStatusListener(_animationStatusListener);
@@ -106,6 +117,9 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
       case AnimationStatus.dismissed:
 //        print('dismissed');
         _isShowMask = false;
+        if (widget.dropdownMenuChanged != null) {
+          widget.dropdownMenuChanged(false, _currentMenuIndex);
+        }
         break;
       case AnimationStatus.forward:
         // TODO: Handle this case.
@@ -115,6 +129,9 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
         break;
       case AnimationStatus.completed:
 //        print('completed');
+        if (widget.dropdownMenuChanged != null) {
+          widget.dropdownMenuChanged(true, _currentMenuIndex);
+        }
         break;
     }
   }

@@ -24,6 +24,8 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
   GlobalKey _stackKey = GlobalKey();
 
+  String _dropdownMenuChange;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -92,11 +94,8 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                 color: Theme.of(context).primaryColor,
                 alignment: Alignment.center,
                 child: Text(
-                  '仿美团电影下拉筛选菜单',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                  ),
+                  '仿美团电影下拉筛选菜单$_dropdownMenuChange',
+                  style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
 //              SizedBox(height: 20,),
@@ -133,12 +132,12 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
 //                // 分割线颜色
 //                dividerColor: Color(0xFFeeede6),
 //                // 文字样式
-//                style: TextStyle(color: Color(0xFF666666), fontSize: 13),
+                style: TextStyle(color: Color(0xFF666666), fontSize: 14),
 //                // 下拉时文字样式
-//                dropDownStyle: TextStyle(
-//                  fontSize: 13,
-//                  color: Theme.of(context).primaryColor,
-//                ),
+                dropDownStyle: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).primaryColor,
+                ),
 //                // 图标大小
 //                iconSize: 20,
 //                // 图标颜色
@@ -170,6 +169,18 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
             // 下拉后遮罩颜色
 //          maskColor: Theme.of(context).primaryColor.withOpacity(0.5),
 //          maskColor: Colors.red.withOpacity(0.5),
+            dropdownMenuChanging: (isShow, index) {
+              setState(() {
+                _dropdownMenuChange = '(正在${isShow ? '显示' : '隐藏'}$index)';
+                print(_dropdownMenuChange);
+              });
+            },
+            dropdownMenuChanged: (isShow, index) {
+              setState(() {
+                _dropdownMenuChange = '(已经${isShow ? '显示' : '隐藏'}$index)';
+                print(_dropdownMenuChange);
+              });
+            },
             // 下拉菜单，高度自定义，你想显示什么就显示什么，完全由你决定，你只需要在选择后调用_dropdownMenuController.hide();即可
             menus: [
               GZXDropdownMenuBuilder(
