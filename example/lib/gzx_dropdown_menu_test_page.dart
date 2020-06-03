@@ -107,7 +107,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[1]),
                   GZXDropDownHeaderItem(
                     _dropDownHeaderItemStrings[2],
-                    style: TextStyle(color: Colors.yellow),
+                    style: TextStyle(color: Colors.green),
                   ),
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[3], iconData: Icons.filter_frames, iconSize: 18),
                 ],
