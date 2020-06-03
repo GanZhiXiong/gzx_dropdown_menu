@@ -24,7 +24,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
-#  gzx_dropdown_menu : ^2.0.0
+  # ^1.2.3 等于 '>=1.2.3 <2.0.0'
+  # ^0.1.2 等于 '>=0.1.2 <0.2.0'
+  # see detail https://stackoverflow.com/questions/53563079/what-is-the-caret-sign-before-the-dependency-version-number-in-flutters-pub
+#  gzx_dropdown_menu : ^2.1.0
 
 #   gzx_dropdown_menu :
 #    git:

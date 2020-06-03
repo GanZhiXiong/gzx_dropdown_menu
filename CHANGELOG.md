@@ -1,3 +1,13 @@
+## [2.1.0] - [2020-06-03]
+### ✨ New Features
+* GZXDropDownMenu add dropdownMenuChanging and dropdownMenuChanged callback
+* GZXDropDownHeaderItem add style (see https://github.com/GanZhiXiong/gzx_dropdown_menu/issues/27)
+### ⚡️ Improvements
+* Add removeListener and removeStatusListener when the animation is recreated
+* Reduced calls to setstate
+### 🐛 Bug Fixes
+* Fixed Dropdown menu hide mask no animation
+
 ## [2.0.0+2] - [2020-05-11]
 * Update Readme
 

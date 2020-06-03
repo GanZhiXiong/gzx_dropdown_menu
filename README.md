@@ -14,6 +14,8 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
  * Custom dropdown menu animation
  * Control dropdown menu show or hide
 
+**<u>[点我查看版本更新记录](https://pub.flutter-io.cn/packages/gzx_dropdown_menu#-changelog-tab-)</u>**
+
 ## 开源不易🙀🙀🙀，麻烦给个Star⭐️吧！我会根据大家的关注度和个人时间持续更新代码！
 **如你想接收更新消息，你可以Watch下，有问题请提到Issues。**
 
@@ -47,12 +49,14 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 打开pubspec.yaml文件
 添加如下代码
 ``` dart
-  gzx_dropdown_menu : ^2.0.0
+  gzx_dropdown_menu : ^2.1.0
 ```
 添加后打开Terminal，执行flutter packages get
 
 ### 2、使用
-打开本仓库example项目下的gzx_dropdown_menu_test_page.dart文件自己看。
+- **强烈建议你先clone下本仓库**
+- 然后运行下看下效果
+- 打开本仓库example项目下的gzx_dropdown_menu_test_page.dart文件自己看。
 
 没空编辑文字了，而且说这么多还不如你直接运行下看下效果，然后看下代码，就知道如何使用了。
 
@@ -67,7 +71,7 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
     items: [
       GZXDropDownHeaderItem(_dropDownHeaderItemStrings[0]),
       GZXDropDownHeaderItem(_dropDownHeaderItemStrings[1]),
-      GZXDropDownHeaderItem(_dropDownHeaderItemStrings[2]),
+      GZXDropDownHeaderItem(_dropDownHeaderItemStrings[2], style: TextStyle(color: Colors.green)),
       GZXDropDownHeaderItem(_dropDownHeaderItemStrings[3], iconData: Icons.filter_frames, iconSize: 18),
     ],
     // GZXDropDownHeader对应第一父级Stack的key
@@ -118,6 +122,18 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
     animationMilliseconds: 500,
     // 下拉后遮罩颜色
     maskColor: Colors.red.withOpacity(0.5),
+    dropdownMenuChanging: (isShow, index) {
+      setState(() {
+        _dropdownMenuChange = '(正在${isShow ? '显示' : '隐藏'}$index)';
+        print(_dropdownMenuChange);
+      });
+    },
+    dropdownMenuChanged: (isShow, index) {
+      setState(() {
+        _dropdownMenuChange = '(已经${isShow ? '显示' : '隐藏'}$index)';
+        print(_dropdownMenuChange);
+      });
+    },    
     // 下拉菜单，高度自定义，你想显示什么就显示什么，完全由你决定，你只需要在选择后调用_dropdownMenuController.hide();即可
     menus: [
       GZXDropdownMenuBuilder(
