@@ -24,7 +24,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
   GlobalKey _stackKey = GlobalKey();
 
-  String _dropdownMenuChange;
+  String _dropdownMenuChange = '';
 
   @override
   void initState() {
