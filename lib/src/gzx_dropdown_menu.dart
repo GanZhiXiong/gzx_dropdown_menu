@@ -6,7 +6,8 @@ class GZXDropdownMenuBuilder {
   final Widget dropDownWidget;
   final double dropDownHeight;
 
-  GZXDropdownMenuBuilder({@required this.dropDownWidget, @required this.dropDownHeight});
+  GZXDropdownMenuBuilder(
+      {@required this.dropDownWidget, @required this.dropDownHeight});
 }
 
 typedef DropdownMenuChange = void Function(bool isShow, int index);
@@ -33,7 +34,8 @@ class GZXDropDownMenu extends StatefulWidget {
   _GZXDropDownMenuState createState() => _GZXDropDownMenuState();
 }
 
-class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProviderStateMixin {
+class _GZXDropDownMenuState extends State<GZXDropDownMenu>
+    with SingleTickerProviderStateMixin {
   bool _isShowDropDownItemWidget = false;
   bool _isShowMask = false;
   bool _isControllerDisposed = false;
@@ -52,7 +54,9 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
     super.initState();
 
     widget.controller.addListener(_onController);
-    _controller = new AnimationController(duration: Duration(milliseconds: widget.animationMilliseconds), vsync: this);
+    _controller = new AnimationController(
+        duration: Duration(milliseconds: widget.animationMilliseconds),
+        vsync: this);
   }
 
   _onController() {
@@ -79,7 +83,8 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
   _showDropDownItemWidget() {
     _currentMenuIndex = widget.controller.menuIndex;
-    if (_currentMenuIndex >= widget.menus.length || widget.menus[_currentMenuIndex] == null) {
+    if (_currentMenuIndex >= widget.menus.length ||
+        widget.menus[_currentMenuIndex] == null) {
       return;
     }
 
@@ -95,9 +100,10 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
     _animation?.removeListener(_animationListener);
     _animation?.removeStatusListener(_animationStatusListener);
-    _animation = new Tween(begin: 0.0, end: _dropDownHeight).animate(_controller)
-      ..addListener(_animationListener)
-      ..addStatusListener(_animationStatusListener);
+    _animation =
+        new Tween(begin: 0.0, end: _dropDownHeight).animate(_controller)
+          ..addListener(_animationListener)
+          ..addStatusListener(_animationStatusListener);
 
     if (_isControllerDisposed) return;
 
@@ -151,7 +157,7 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
           widget.controller.hide();
         },
         child: Container(
-          width: MediaQuery.of(context).size.width,
+          width: double.infinity,
           height: MediaQuery.of(context).size.height,
           color: widget.maskColor.withOpacity(_maskColorOpacity),
 //          color: widget.maskColor,
@@ -172,14 +178,14 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
     }
 
     return Positioned(
-        width: MediaQuery.of(context).size.width,
         top: widget.controller.dropDownHeaderHeight,
         left: 0,
+        right: 0,
         child: Column(
           children: <Widget>[
             Container(
               color: Colors.white,
-              width: MediaQuery.of(context).size.width,
+              width: double.infinity,
               height: _animation == null ? 0 : _animation.value,
               child: widget.menus[menuIndex].dropDownWidget,
             ),
