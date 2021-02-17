@@ -157,7 +157,9 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
                     ),
                   ),
                   Icon(
-                    !_isShowDropDownItemWidget ? item.iconData ?? Icons.arrow_drop_down : item.iconData ?? Icons.arrow_drop_up,
+                    !_isShowDropDownItemWidget
+                        ? item.iconData ?? Icons.arrow_drop_down
+                        : item.iconDropDownData ?? item.iconData ?? Icons.arrow_drop_up,
                     color: _isShowDropDownItemWidget ? _iconDropDownColor : item?.style?.color ?? widget.iconColor,
                     size: item.iconSize ?? widget.iconSize,
                   ),
@@ -184,7 +186,8 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
 class GZXDropDownHeaderItem {
   final String title;
   final IconData iconData;
+  final IconData iconDropDownData;
   final double iconSize;
   final TextStyle style;
-  GZXDropDownHeaderItem(this.title, {this.iconData, this.iconSize, this.style});
+  GZXDropDownHeaderItem(this.title, {this.iconData, this.iconDropDownData, this.iconSize, this.style});
 }
