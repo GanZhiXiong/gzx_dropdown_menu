@@ -5,7 +5,7 @@ class SortCondition {
   String name;
   bool isSelected;
 
-  SortCondition({this.name, this.isSelected});
+  SortCondition({required this.name, required this.isSelected});
 }
 
 class GZXDropDownMenuTestPage extends StatefulWidget {
@@ -17,8 +17,8 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
   List<String> _dropDownHeaderItemStrings = ['全城', '品牌', '距离近', '筛选'];
   List<SortCondition> _brandSortConditions = [];
   List<SortCondition> _distanceSortConditions = [];
-  SortCondition _selectBrandSortCondition;
-  SortCondition _selectDistanceSortCondition;
+  late SortCondition _selectBrandSortCondition;
+  late SortCondition _selectDistanceSortCondition;
   GZXDropdownMenuController _dropdownMenuController = GZXDropdownMenuController();
 
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -119,7 +119,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                 onItemTap: (index) {
                   if (index == 3) {
                     _dropdownMenuController.hide();
-                    _scaffoldKey.currentState.openEndDrawer();
+                    _scaffoldKey.currentState!.openEndDrawer();
                   }
                 },
 //                // 头部的高度

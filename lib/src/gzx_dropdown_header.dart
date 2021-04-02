@@ -8,25 +8,25 @@ class GZXDropDownHeader extends StatefulWidget {
   final double borderWidth;
   final Color borderColor;
   final TextStyle style;
-  final TextStyle dropDownStyle;
+  final TextStyle? dropDownStyle;
   final double iconSize;
   final Color iconColor;
-  final Color iconDropDownColor;
+  final Color? iconDropDownColor;
 
 //  final List<String> menuStrings;
   final double height;
   final double dividerHeight;
   final Color dividerColor;
   final GZXDropdownMenuController controller;
-  final OnItemTap onItemTap;
+  final OnItemTap? onItemTap;
   final List<GZXDropDownHeaderItem> items;
   final GlobalKey stackKey;
 
   GZXDropDownHeader({
-    Key key,
-    @required this.items,
-    @required this.controller,
-    @required this.stackKey,
+    Key? key,
+    required this.items,
+    required this.controller,
+    required this.stackKey,
     this.style = const TextStyle(color: Color(0xFF666666), fontSize: 13),
     this.dropDownStyle,
     this.height = 40,
@@ -47,11 +47,11 @@ class GZXDropDownHeader extends StatefulWidget {
 
 class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTickerProviderStateMixin {
   bool _isShowDropDownItemWidget = false;
-  double _screenWidth;
-  int _menuCount;
+  late double _screenWidth;
+  late int _menuCount;
   GlobalKey _keyDropDownHeader = GlobalKey();
-  TextStyle _dropDownStyle;
-  Color _iconDropDownColor;
+  TextStyle? _dropDownStyle;
+  Color? _iconDropDownColor;
 
   @override
   void initState() {
@@ -109,9 +109,9 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
 
     return GestureDetector(
       onTap: () {
-        final RenderBox overlay = widget.stackKey.currentContext.findRenderObject();
+        final RenderBox? overlay = widget.stackKey.currentContext!.findRenderObject() as RenderBox?;
 
-        final RenderBox dropDownItemRenderBox = _keyDropDownHeader.currentContext.findRenderObject();
+        final RenderBox dropDownItemRenderBox = _keyDropDownHeader.currentContext!.findRenderObject() as RenderBox;
 
         var position = dropDownItemRenderBox.localToGlobal(Offset.zero, ancestor: overlay);
 //        print("POSITION : $position ");
@@ -134,7 +134,7 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
         }
 
         if (widget.onItemTap != null) {
-          widget.onItemTap(index);
+          widget.onItemTap!(index);
         }
 
         setState(() {});
@@ -158,7 +158,7 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
                   ),
                   Icon(
                     !_isShowDropDownItemWidget ? item.iconData ?? Icons.arrow_drop_down : item.iconData ?? Icons.arrow_drop_up,
-                    color: _isShowDropDownItemWidget ? _iconDropDownColor : item?.style?.color ?? widget.iconColor,
+                    color: _isShowDropDownItemWidget ? _iconDropDownColor : item.style?.color ?? widget.iconColor,
                     size: item.iconSize ?? widget.iconSize,
                   ),
                 ],
@@ -183,8 +183,8 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
 
 class GZXDropDownHeaderItem {
   final String title;
-  final IconData iconData;
-  final double iconSize;
-  final TextStyle style;
+  final IconData? iconData;
+  final double? iconSize;
+  final TextStyle? style;
   GZXDropDownHeaderItem(this.title, {this.iconData, this.iconSize, this.style});
 }

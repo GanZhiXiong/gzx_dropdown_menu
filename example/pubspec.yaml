@@ -13,8 +13,15 @@ description: A new Flutter application.
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
 
+#Dart 运行环境区间
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+#  sdk: ">=2.11.0 <3.0.0" # Dart SDK版本号，多人开发建议写死
+  # 健全的空安全已在 Dart 2.12 和 Flutter 2 中可用。
+  # 所以迁移到空安全的
+  # 第一步：升级Flutter到2.0
+  # 第二步：修改Dart SDK范围为2.12.x以上
+  sdk: '>=2.12.0 <3.0.0'
+
 
 dependencies:
   flutter:
@@ -22,17 +29,24 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^1.0.2
 
-  # ^1.2.3 等于 '>=1.2.3 <2.0.0'
-  # ^0.1.2 等于 '>=0.1.2 <0.2.0'
-  # see detail https://stackoverflow.com/questions/53563079/what-is-the-caret-sign-before-the-dependency-version-number-in-flutters-pub
+# 你可以通过以下三种方式引入gzx_dropdown_menu
+
+# 方式1：使用语义版本控制（推荐使用）
+# ^3.1.5 等于 '>=3.1.5 <4.0.0'
+# ^1.2.3 等于 '>=1.2.3 <2.0.0'
+# ^0.1.2 等于 '>=0.1.2 <0.2.0'
+# see detail https://stackoverflow.com/questions/53563079/what-is-the-caret-sign-before-the-dependency-version-number-in-flutters-pub
 #  gzx_dropdown_menu : ^2.1.0
 
-#   gzx_dropdown_menu :
-#    git:
-#      url: https://github.com/GanZhiXiong/gzx_dropdown_menu.git
 
+# 方式2：通过远程Git仓库
+#  gzx_dropdown_menu :
+#   git:
+#     url: https://github.com/GanZhiXiong/gzx_dropdown_menu.git
+
+# 方式3：通过本地路径
   gzx_dropdown_menu :
     path : ../
 

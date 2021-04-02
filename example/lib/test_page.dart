@@ -31,7 +31,7 @@ class _TestPageState extends State<TestPage> {
           IconButton(
               icon: Icon(Icons.menu),
               onPressed: () {
-                _scaffoldKey.currentState.openEndDrawer();
+                _scaffoldKey.currentState!.openEndDrawer();
               })
         ],
       ),
