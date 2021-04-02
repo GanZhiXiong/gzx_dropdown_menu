@@ -9,10 +9,8 @@
 这是一个Flutter自定义功能强大的轻量级**下拉筛选菜单**Package，它支持iOS和Android。
 
 ***
-- **开源不易🙀🙀🙀，麻烦给个Star⭐️吧！  
-我会根据大家的关注度和个人时间持续更新代码！**
-
-- **如你想接收更新消息，你可以Watch下，有问题请提到Issues。**
+- 开源不易🙀🙀🙀，麻烦给个Star⭐️吧！我会根据大家的关注度和个人时间持续更新代码！
+- 如你想接收更新消息，你可以Watch下，有问题请提到Issues。
 ***
 
 # 导航
@@ -33,15 +31,15 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
  * Custom dropdown menu animation
  * Control dropdown menu show or hide
 
-**<u>[点我查看版本更新记录](https://pub.flutter-io.cn/packages/gzx_dropdown_menu#-changelog-tab-)</u>**
+**<u>[查看版本更新记录](https://pub.flutter-io.cn/packages/gzx_dropdown_menu#-changelog-tab-)</u>**
 
 # 待办事项
 - [ ] ..........
 
 # Gif效果图
-分别是仿美团和淘宝的效果图  
-美团的代码就在这个仓库的example目录下  
-淘宝的代码在[Flutter 淘宝，点我打开](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
+效果图展示了仿美团和淘宝的下拉筛选菜单。
+- 美团的代码就在这个仓库的example目录下
+- 淘宝的代码在[Flutter 淘宝](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
 
 <!---
 这样写pub上Readme图片不能显示
@@ -54,7 +52,7 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 <img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="414" hegiht="736" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="414" hegiht="736" align=center />)
 
 # 如何使用
-目前已发布到Pub，你可以在Pub官网查看最新的版本和更新说明！[点我去Pub官网查看](https://pub.flutter-io.cn/packages/gzx_dropdown_menu)
+目前已发布到Pub，你可以在Pub官网查看最新的版本和更新说明！[去Pub官网查看](https://pub.flutter-io.cn/packages/gzx_dropdown_menu)
 ## 1、添加gzx_dropdown_menu package
 打开pubspec.yaml文件
 添加如下代码
