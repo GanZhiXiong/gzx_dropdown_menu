@@ -1,3 +1,6 @@
+## [3.0.0] - [2021-04-02]
+Migrate to null safety.
+
 ## [2.1.0] - [2020-06-03]
 ### ✨ New Features
 * GZXDropDownMenu add dropdownMenuChanging and dropdownMenuChanged callback

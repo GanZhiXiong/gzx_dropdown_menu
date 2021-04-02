@@ -6,6 +6,25 @@
 [![GitHub Issues](https://img.shields.io/github/issues/ganzhixiong/gzx_dropdown_menu.svg)](https://github.com/ganzhixiong/gzx_dropdown_menu/issues)
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/ganzhixiong/gzx_dropdown_menu/master/LICENSE)
 
+这是一个Flutter自定义功能强大的轻量级**下拉筛选菜单**Package，它支持iOS和Android。
+
+***
+- **开源不易🙀🙀🙀，麻烦给个Star⭐️吧！  
+我会根据大家的关注度和个人时间持续更新代码！**
+
+- **如你想接收更新消息，你可以Watch下，有问题请提到Issues。**
+***
+
+# 导航
+- [功能介绍](#功能介绍)
+- [待办事项](#待办事项)
+- [Gif效果图](#Gif效果图)
+- [如何使用](#如何使用)
+- [相关Repository](#相关Repository)
+- [相关文章](#相关文章)
+- [捐助开发者](#捐助开发者)
+
+# 功能介绍
 A custom is strong dropdown menu for Flutter. Easy to use and powerful for customization, it's up to you what you want to display in the dropdown menu!
 
  * Custom dropdown header
@@ -16,19 +35,10 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 
 **<u>[点我查看版本更新记录](https://pub.flutter-io.cn/packages/gzx_dropdown_menu#-changelog-tab-)</u>**
 
-## 开源不易🙀🙀🙀，麻烦给个Star⭐️吧！我会根据大家的关注度和个人时间持续更新代码！
-**如你想接收更新消息，你可以Watch下，有问题请提到Issues。**
+# 待办事项
+- [ ] ..........
 
-#### 相关Repository
-* [Flutter 淘宝App](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
-#### 相关文章
-* [掘金](https://juejin.im/user/5cf10106518825189f6fa229/posts)
-
-## 导航
-- [Gif效果图](#Gif效果图)
-- [如何使用](#如何使用)
-
-## Gif效果图
+# Gif效果图
 分别是仿美团和淘宝的效果图  
 美团的代码就在这个仓库的example目录下  
 淘宝的代码在[Flutter 淘宝，点我打开](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
@@ -43,17 +53,17 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 [//]: # (
 <img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/美团.gif" width="414" hegiht="736" align=center /><img src="https://github.com/GanZhiXiong/gzx_dropdown_menu/blob/master/preview_images/淘宝.gif" width="414" hegiht="736" align=center />)
 
-## 如何使用
+# 如何使用
 目前已发布到Pub，你可以在Pub官网查看最新的版本和更新说明！[点我去Pub官网查看](https://pub.flutter-io.cn/packages/gzx_dropdown_menu)
-### 1、添加gzx_dropdown_menu package
+## 1、添加gzx_dropdown_menu package
 打开pubspec.yaml文件
 添加如下代码
 ``` dart
-  gzx_dropdown_menu : ^2.1.0
+  gzx_dropdown_menu : ^3.0.0
 ```
 添加后打开Terminal，执行flutter packages get
 
-### 2、使用
+## 2、使用
 - **强烈建议你先clone下本仓库**
 - 然后运行下看下效果
 - 打开本仓库example项目下的gzx_dropdown_menu_test_page.dart文件自己看。
@@ -62,7 +72,7 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 
 **~~算了~~🤪🤪🤪🙄还是简单说下吧！！！**  
 你只需要将GZXDropDownHeader和GZXDropDownMenu嵌套到你的代码中即可
-#### GZXDropDownHeader
+### GZXDropDownHeader
 **这里要注意了，这些参数不是必须要要写的，我写出来只是让你知道强大的自定义功能，实际上就前面三个参数是必填的**
 ``` dart
   // 下拉菜单头部
@@ -112,7 +122,7 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
     iconDropDownColor: Theme.of(context).primaryColor,
   ),
 ```
-#### GZXDropDownMenu
+### GZXDropDownMenu
 ``` dart
   // 下拉菜单
   GZXDropDownMenu(
@@ -163,3 +173,12 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
     ],
   )
 ```
+
+# 相关Repository
+* [Flutter 淘宝App](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter)
+
+# 相关文章
+* [作者CSDN](https://blog.csdn.net/oHaiKuoTianKong1682)
+
+# 捐助开发者
+![](https://github.com/GanZhiXiong/GZXTaoBaoAppFlutter/blob/master/preview_images/thanks.png)
