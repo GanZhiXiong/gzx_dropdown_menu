@@ -1,27 +1,18 @@
-name: example
-description: A new Flutter application.
+name: gzx_dropdown_menu_example
+description: Demonstrates how to use the gzx_dropdown_menu plugin.
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 #Dart 运行环境区间
 environment:
-#  sdk: ">=2.11.0 <3.0.0" # Dart SDK版本号，多人开发建议写死
+  #  sdk: ">=2.11.0 <3.0.0" # Dart SDK版本号，多人开发建议写死
   # 健全的空安全已在 Dart 2.12 和 Flutter 2 中可用。
   # 所以迁移到空安全的
   # 第一步：升级Flutter到2.0
   # 第二步：修改Dart SDK范围为2.12.x以上
-  sdk: '>=2.12.0 <3.0.0'
-
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -31,32 +22,30 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-# 你可以通过以下三种方式引入gzx_dropdown_menu
+  # 你可以通过以下三种方式引入gzx_dropdown_menu
 
-# 方式1：使用语义版本控制（推荐使用）
-# ^3.1.5 等于 '>=3.1.5 <4.0.0'
-# ^1.2.3 等于 '>=1.2.3 <2.0.0'
-# ^0.1.2 等于 '>=0.1.2 <0.2.0'
-# see detail https://stackoverflow.com/questions/53563079/what-is-the-caret-sign-before-the-dependency-version-number-in-flutters-pub
-#  gzx_dropdown_menu : ^2.1.0
+  # 方式1：使用语义版本控制（推荐使用）
+  # ^3.1.5 等于 '>=3.1.5 <4.0.0'
+  # ^1.2.3 等于 '>=1.2.3 <2.0.0'
+  # ^0.1.2 等于 '>=0.1.2 <0.2.0'
+  # see detail https://stackoverflow.com/questions/53563079/what-is-the-caret-sign-before-the-dependency-version-number-in-flutters-pub
+  #  gzx_dropdown_menu : ^2.1.0
 
+  # 方式2：通过远程Git仓库
+  #  gzx_dropdown_menu :
+  #   git:
+  #     url: https://github.com/GanZhiXiong/gzx_dropdown_menu.git
 
-# 方式2：通过远程Git仓库
-#  gzx_dropdown_menu :
-#   git:
-#     url: https://github.com/GanZhiXiong/gzx_dropdown_menu.git
-
-# 方式3：通过本地路径
-  gzx_dropdown_menu :
-    path : ../
+  # 方式3：通过本地路径
+  gzx_dropdown_menu:
+    path: ../
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
 # For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
+# following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
@@ -68,8 +57,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   # assets:
-  #  - images/a_dot_burr.jpeg
-  #  - images/a_dot_ham.jpeg
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

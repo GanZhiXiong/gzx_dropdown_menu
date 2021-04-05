@@ -79,7 +79,7 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
   _showDropDownItemWidget() {
     _currentMenuIndex = widget.controller.menuIndex;
-    if (_currentMenuIndex! >= widget.menus.length || widget.menus[_currentMenuIndex!] == null) {
+    if (_currentMenuIndex! >= widget.menus.length) {
       return;
     }
 
