@@ -5,7 +5,10 @@ class SortCondition {
   String name;
   bool isSelected;
 
-  SortCondition({required this.name, required this.isSelected});
+  SortCondition({
+    required this.name,
+    required this.isSelected,
+  });
 }
 
 class GZXDropDownMenuTestPage extends StatefulWidget {
@@ -65,12 +68,13 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
-          child: AppBar(
-            brightness: Brightness.dark,
-            backgroundColor: Theme.of(context).primaryColor,
-            elevation: 0,
-          ),
-          preferredSize: Size.fromHeight(0)),
+        child: AppBar(
+          brightness: Brightness.dark,
+          backgroundColor: Theme.of(context).primaryColor,
+          elevation: 0,
+        ),
+        preferredSize: Size.fromHeight(0),
+      ),
       backgroundColor: Colors.white,
       endDrawer: Container(
         margin: EdgeInsets.only(left: MediaQuery.of(context).size.width / 4, top: 0),
@@ -80,7 +84,9 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
 //          child: TextField(),
 //        ),),
         child: ListView(
-          children: <Widget>[TextField()],
+          children: <Widget>[
+            TextField(),
+          ],
         ),
       ),
       // GZXDropDownMenu只能在Stack内，后续有时间会改进，以及支持CustomScrollView和NestedScrollView
@@ -96,7 +102,11 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                 alignment: Alignment.center,
                 child: Text(
                   '仿美团电影下拉筛选菜单$_dropdownMenuChange',
-                  style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
 //              SizedBox(height: 20,),
@@ -110,7 +120,11 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                     _dropDownHeaderItemStrings[2],
                     style: TextStyle(color: Colors.green),
                   ),
-                  GZXDropDownHeaderItem(_dropDownHeaderItemStrings[3], iconData: Icons.filter_frames, iconSize: 18),
+                  GZXDropDownHeaderItem(
+                    _dropDownHeaderItemStrings[3],
+                    iconData: Icons.filter_frames,
+                    iconSize: 18,
+                  ),
                 ],
                 // GZXDropDownHeader对应第一父级Stack的key
                 stackKey: _stackKey,
@@ -243,32 +257,12 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
         Container(
           width: 100,
           child: ListView(
-            children: firstLevels.map((item) {
-              int index = firstLevels.indexOf(item);
-              return GestureDetector(
-                onTap: () {
-                  _selectTempFirstLevelIndex = index;
-
-                  if (_selectTempFirstLevelIndex == 0) {
-                    itemOnTap('全城');
-                    return;
-                  }
-                  setState(() {});
-                },
-                child: Container(
-                    height: 40,
-                    color: _selectTempFirstLevelIndex == index ? Colors.grey[200] : Colors.white,
-                    alignment: Alignment.center,
-                    child: _selectTempFirstLevelIndex == index
-                        ? Text(
-                            '$item',
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                            ),
-                          )
-                        : Text('$item')),
-              );
-            }).toList(),
+            children: firstLevels.map(
+              (item) {
+                int index = firstLevels.indexOf(item);
+                return gestureDetector0(index, itemOnTap, item);
+              },
+            ).toList(),
           ),
         ),
         Expanded(
@@ -277,40 +271,76 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
             child: _selectTempFirstLevelIndex == 0
                 ? Container()
                 : ListView(
-                    children: secondLevels.map((item) {
-                      int index = secondLevels.indexOf(item);
-                      return GestureDetector(
-                          onTap: () {
-                            _selectSecondLevelIndex = index;
-                            _selectFirstLevelIndex = _selectTempFirstLevelIndex;
-                            if (_selectSecondLevelIndex == 0) {
-                              itemOnTap(firstLevels[_selectFirstLevelIndex]);
-                            } else {
-                              itemOnTap(item);
-                            }
-                          },
-                          child: Container(
-                            height: 40,
-                            alignment: Alignment.centerLeft,
-                            child: Row(children: <Widget>[
-                              SizedBox(
-                                width: 20,
-                              ),
-                              _selectFirstLevelIndex == _selectTempFirstLevelIndex && _selectSecondLevelIndex == index
-                                  ? Text(
-                                      '$item',
-                                      style: TextStyle(
-                                        color: Theme.of(context).primaryColor,
-                                      ),
-                                    )
-                                  : Text('$item'),
-                            ]),
-                          ));
-                    }).toList(),
+                    children: secondLevels.map(
+                      (item) {
+                        int index = secondLevels.indexOf(item);
+                        return gestureDetector1(index, itemOnTap, firstLevels, item);
+                      },
+                    ).toList(),
                   ),
           ),
-        )
+        ),
       ],
+    );
+  }
+
+  GestureDetector gestureDetector0(int index, void itemOnTap(String selectValue), item) {
+    return GestureDetector(
+      onTap: () {
+        _selectTempFirstLevelIndex = index;
+
+        if (_selectTempFirstLevelIndex == 0) {
+          itemOnTap('全城');
+          return;
+        }
+        setState(() {});
+      },
+      child: Container(
+        height: 40,
+        color: _selectTempFirstLevelIndex == index ? Colors.grey[200] : Colors.white,
+        alignment: Alignment.center,
+        child: _selectTempFirstLevelIndex == index
+            ? Text(
+                '$item',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                ),
+              )
+            : Text('$item'),
+      ),
+    );
+  }
+
+  GestureDetector gestureDetector1(int index, void itemOnTap(String selectValue), List firstLevels, item) {
+    return GestureDetector(
+      onTap: () {
+        _selectSecondLevelIndex = index;
+        _selectFirstLevelIndex = _selectTempFirstLevelIndex;
+        if (_selectSecondLevelIndex == 0) {
+          itemOnTap(firstLevels[_selectFirstLevelIndex]);
+        } else {
+          itemOnTap(item);
+        }
+      },
+      child: Container(
+        height: 40,
+        alignment: Alignment.centerLeft,
+        child: Row(
+          children: <Widget>[
+            SizedBox(
+              width: 20,
+            ),
+            _selectFirstLevelIndex == _selectTempFirstLevelIndex && _selectSecondLevelIndex == index
+                ? Text(
+                    '$item',
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  )
+                : Text('$item'),
+          ],
+        ),
+      ),
     );
   }
 
@@ -323,47 +353,51 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
       separatorBuilder: (BuildContext context, int index) => Divider(height: 1.0),
       // 添加分割线
       itemBuilder: (BuildContext context, int index) {
-        SortCondition goodsSortCondition = items[index];
-        return GestureDetector(
-          onTap: () {
-            for (var value in items) {
-              value.isSelected = false;
-            }
-            goodsSortCondition.isSelected = true;
-
-            itemOnTap(goodsSortCondition);
-          },
-          child: Container(
-//            color: Colors.blue,
-            height: 40,
-            child: Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 16,
-                ),
-                Expanded(
-                  child: Text(
-                    goodsSortCondition.name,
-                    style: TextStyle(
-                      color: goodsSortCondition.isSelected ? Theme.of(context).primaryColor : Colors.black,
-                    ),
-                  ),
-                ),
-                goodsSortCondition.isSelected
-                    ? Icon(
-                        Icons.check,
-                        color: Theme.of(context).primaryColor,
-                        size: 16,
-                      )
-                    : SizedBox(),
-                SizedBox(
-                  width: 16,
-                ),
-              ],
-            ),
-          ),
-        );
+        return gestureDetector(items, index, itemOnTap, context);
       },
+    );
+  }
+
+  GestureDetector gestureDetector(items, int index, void itemOnTap(SortCondition sortCondition), BuildContext context) {
+    SortCondition goodsSortCondition = items[index];
+    return GestureDetector(
+      onTap: () {
+        for (var value in items) {
+          value.isSelected = false;
+        }
+        goodsSortCondition.isSelected = true;
+
+        itemOnTap(goodsSortCondition);
+      },
+      child: Container(
+        //            color: Colors.blue,
+        height: 40,
+        child: Row(
+          children: <Widget>[
+            SizedBox(
+              width: 16,
+            ),
+            Expanded(
+              child: Text(
+                goodsSortCondition.name,
+                style: TextStyle(
+                  color: goodsSortCondition.isSelected ? Theme.of(context).primaryColor : Colors.black,
+                ),
+              ),
+            ),
+            goodsSortCondition.isSelected
+                ? Icon(
+                    Icons.check,
+                    color: Theme.of(context).primaryColor,
+                    size: 16,
+                  )
+                : SizedBox(),
+            SizedBox(
+              width: 16,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

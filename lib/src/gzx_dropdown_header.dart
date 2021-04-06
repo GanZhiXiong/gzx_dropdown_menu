@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'gzx_dropdown_menu_controller.dart';
 
 /// Signature for when a tap has occurred.
@@ -95,7 +96,10 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
       height: widget.height,
 //      padding: EdgeInsets.only(top: 1, bottom: 1),
       decoration: BoxDecoration(
-        border: Border.all(color: widget.borderColor, width: widget.borderWidth),
+        border: Border.all(
+          color: widget.borderColor,
+          width: widget.borderWidth,
+        ),
       ),
       child: gridView,
     );
@@ -192,5 +196,10 @@ class GZXDropDownHeaderItem {
   final double? iconSize;
   final TextStyle? style;
 
-  GZXDropDownHeaderItem(this.title, {this.iconData, this.iconSize, this.style});
+  GZXDropDownHeaderItem(
+    this.title, {
+    this.iconData,
+    this.iconSize,
+    this.style,
+  });
 }
