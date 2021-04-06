@@ -59,7 +59,7 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 打开pubspec.yaml文件
 添加如下代码
 ``` dart
-  gzx_dropdown_menu : ^3.0.0
+  gzx_dropdown_menu: ^3.0.0+1
 ```
 添加后打开Terminal，执行flutter packages get
 
