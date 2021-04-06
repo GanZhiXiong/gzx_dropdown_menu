@@ -83,6 +83,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
           children: <Widget>[TextField()],
         ),
       ),
+      // GZXDropDownMenu只能在Stack内，后续有时间会改进，以及支持CustomScrollView和NestedScrollView
       body: Stack(
         key: _stackKey,
         children: <Widget>[
@@ -163,7 +164,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
               ),
             ],
           ),
-          // 下拉菜单
+          // 下拉菜单，注意GZXDropDownMenu只能在Stack内
           GZXDropDownMenu(
             // controller用于控制menu的显示或隐藏
             controller: _dropdownMenuController,
@@ -197,7 +198,8 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                   dropDownHeight: 40 * 8.0,
                   dropDownWidget: _buildConditionListWidget(_brandSortConditions, (value) {
                     _selectBrandSortCondition = value;
-                    _dropDownHeaderItemStrings[1] = _selectBrandSortCondition.name == '全部' ? '品牌' : _selectBrandSortCondition.name;
+                    _dropDownHeaderItemStrings[1] =
+                        _selectBrandSortCondition.name == '全部' ? '品牌' : _selectBrandSortCondition.name;
                     _dropdownMenuController.hide();
                     setState(() {});
                   })),

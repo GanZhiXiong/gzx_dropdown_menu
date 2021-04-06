@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'gzx_dropdown_menu_controller.dart';
 
+/// Information about the dropdown menu widget, such as the height of the drop down menu to be displayed.
 class GZXDropdownMenuBuilder {
+  /// A dropdown menu displays the widget.
   final Widget dropDownWidget;
+
+  /// Dropdown menu height.
   final double dropDownHeight;
 
   GZXDropdownMenuBuilder({required this.dropDownWidget, required this.dropDownHeight});
@@ -11,14 +15,21 @@ class GZXDropdownMenuBuilder {
 
 typedef DropdownMenuChange = void Function(bool isShow, int? index);
 
+/// Dropdown menu widget.
 class GZXDropDownMenu extends StatefulWidget {
   final GZXDropdownMenuController controller;
   final List<GZXDropdownMenuBuilder> menus;
   final int animationMilliseconds;
   final Color maskColor;
+
+  /// Called when dropdown menu start showing or hiding.
   final DropdownMenuChange? dropdownMenuChanging;
+
+  /// Called when dropdown menu has been shown or hidden.
   final DropdownMenuChange? dropdownMenuChanged;
 
+  /// Creates a dropdown menu widget.
+  /// The widget must be inside the Stack because the widget is a Positioned.
   const GZXDropDownMenu(
       {Key? key,
       required this.controller,
@@ -173,7 +184,7 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
     return Positioned(
         width: MediaQuery.of(context).size.width,
-        top: widget.controller.dropDownHeaderHeight,
+        top: widget.controller.dropDownMenuTop,
         left: 0,
         child: Column(
           children: <Widget>[

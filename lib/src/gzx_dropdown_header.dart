@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'gzx_dropdown_menu_controller.dart';
 
+/// Signature for when a tap has occurred.
 typedef OnItemTap<T> = void Function(T value);
 
+/// Dropdown header widget.
 class GZXDropDownHeader extends StatefulWidget {
   final Color color;
   final double borderWidth;
@@ -22,6 +24,7 @@ class GZXDropDownHeader extends StatefulWidget {
   final List<GZXDropDownHeaderItem> items;
   final GlobalKey stackKey;
 
+  /// Creates a dropdown header widget, Contains more than one header items.
   GZXDropDownHeader({
     Key? key,
     required this.items,
@@ -118,7 +121,7 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
         var size = dropDownItemRenderBox.size;
 //        print("SIZE : $size");
 
-        widget.controller.dropDownHeaderHeight = size.height + position.dy;
+        widget.controller.dropDownMenuTop = size.height + position.dy;
 
         if (index == menuIndex) {
           if (widget.controller.isShow) {
