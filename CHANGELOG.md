@@ -1,3 +1,6 @@
+## [3.0.0+2] - [2021-04-07]
+* Using trailing commas and Format code
+
 ## [3.0.0+1] - [2021-04-06]
 * Fixed Dart Analysis 3 issues
 * Add DartDoc comments, remove useless code, and change variable names
