@@ -34,6 +34,8 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 **<u>[查看版本更新记录](https://pub.flutter-io.cn/packages/gzx_dropdown_menu#-changelog-tab-)</u>**
 
 # 待办事项
+- [ ] 由于GZXDropDownMenu只能在Stack内使用，扩展性还不够强
+- [ ] 支持CustomScrollView和NestedScrollView
 - [ ] ..........
 
 # Gif效果图
