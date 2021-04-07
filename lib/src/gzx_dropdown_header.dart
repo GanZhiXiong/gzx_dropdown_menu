@@ -174,7 +174,9 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader>
                   Icon(
                     !_isShowDropDownItemWidget
                         ? item.iconData ?? Icons.arrow_drop_down
-                        : item.iconData ?? Icons.arrow_drop_up,
+                        : item.iconDropDownData ??
+                            item.iconData ??
+                            Icons.arrow_drop_up,
                     color: _isShowDropDownItemWidget
                         ? _iconDropDownColor
                         : item.style?.color ?? widget.iconColor,
@@ -192,7 +194,7 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader>
                         right: BorderSide(color: widget.dividerColor, width: 1),
                       ),
                     ),
-                  )
+                  ),
           ],
         ),
       ),
@@ -203,12 +205,14 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader>
 class GZXDropDownHeaderItem {
   final String title;
   final IconData? iconData;
+  final IconData? iconDropDownData;
   final double? iconSize;
   final TextStyle? style;
 
   GZXDropDownHeaderItem(
     this.title, {
     this.iconData,
+    this.iconDropDownData,
     this.iconSize,
     this.style,
   });

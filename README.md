@@ -80,7 +80,7 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
     // 下拉的头部项，目前每一项，只能自定义显示的文字、图标、图标大小修改
     items: [
       GZXDropDownHeaderItem(_dropDownHeaderItemStrings[0]),
-      GZXDropDownHeaderItem(_dropDownHeaderItemStrings[1]),
+      GZXDropDownHeaderItem(_dropDownHeaderItemStrings[1], iconData: Icons.keyboard_arrow_down, iconDropDownData: Icons.keyboard_arrow_up),
       GZXDropDownHeaderItem(_dropDownHeaderItemStrings[2], style: TextStyle(color: Colors.green)),
       GZXDropDownHeaderItem(_dropDownHeaderItemStrings[3], iconData: Icons.filter_frames, iconSize: 18),
     ],

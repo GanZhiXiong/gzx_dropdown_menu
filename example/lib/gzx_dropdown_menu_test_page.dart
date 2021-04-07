@@ -115,10 +115,16 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                 // 下拉的头部项，目前每一项，只能自定义显示的文字、图标、图标大小修改
                 items: [
                   GZXDropDownHeaderItem(_dropDownHeaderItemStrings[0]),
-                  GZXDropDownHeaderItem(_dropDownHeaderItemStrings[1]),
+                  GZXDropDownHeaderItem(
+                    _dropDownHeaderItemStrings[1],
+                    iconData: Icons.keyboard_arrow_down,
+                    iconDropDownData: Icons.keyboard_arrow_up,
+                  ),
                   GZXDropDownHeaderItem(
                     _dropDownHeaderItemStrings[2],
                     style: TextStyle(color: Colors.green),
+                    iconData: Icons.arrow_upward,
+                    iconDropDownData: Icons.arrow_downward,
                   ),
                   GZXDropDownHeaderItem(
                     _dropDownHeaderItemStrings[3],
