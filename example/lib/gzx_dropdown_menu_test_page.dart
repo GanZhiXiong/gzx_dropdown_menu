@@ -89,7 +89,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
           ],
         ),
       ),
-      // GZXDropDownMenu只能在Stack内，后续有时间会改进，以及支持CustomScrollView和NestedScrollView
+      // GZXDropDownMenu目前只能在Stack内，后续有时间会改进，以及支持CustomScrollView和NestedScrollView
       body: Stack(
         key: _stackKey,
         children: <Widget>[
@@ -184,7 +184,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
               ),
             ],
           ),
-          // 下拉菜单，注意GZXDropDownMenu只能在Stack内
+          // 下拉菜单，注意GZXDropDownMenu目前只能在Stack内，后续有时间会改进，以及支持CustomScrollView和NestedScrollView
           GZXDropDownMenu(
             // controller用于控制menu的显示或隐藏
             controller: _dropdownMenuController,
