@@ -171,7 +171,7 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu>
           widget.controller.hide();
         },
         child: Container(
-          width: MediaQuery.of(context).size.width,
+          width: double.infinity,
           height: MediaQuery.of(context).size.height,
           color: widget.maskColor.withOpacity(_maskColorOpacity),
 //          color: widget.maskColor,
@@ -192,14 +192,14 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu>
     }
 
     return Positioned(
-        width: MediaQuery.of(context).size.width,
         top: widget.controller.dropDownMenuTop,
         left: 0,
+        right: 0,
         child: Column(
           children: <Widget>[
             Container(
               color: Colors.white,
-              width: MediaQuery.of(context).size.width,
+              width: double.infinity,
               height: _animation == null ? 0 : _animation!.value,
               child: widget.menus[menuIndex].dropDownWidget,
             ),
