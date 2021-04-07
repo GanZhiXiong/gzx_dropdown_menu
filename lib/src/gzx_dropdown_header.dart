@@ -49,7 +49,8 @@ class GZXDropDownHeader extends StatefulWidget {
   _GZXDropDownHeaderState createState() => _GZXDropDownHeaderState();
 }
 
-class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTickerProviderStateMixin {
+class _GZXDropDownHeaderState extends State<GZXDropDownHeader>
+    with SingleTickerProviderStateMixin {
   bool _isShowDropDownItemWidget = false;
   late double _screenWidth;
   late int _menuCount;
@@ -75,8 +76,10 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
   Widget build(BuildContext context) {
 //    print('_GZXDropDownHeaderState.build');
 
-    _dropDownStyle = widget.dropDownStyle ?? TextStyle(color: Theme.of(context).primaryColor, fontSize: 13);
-    _iconDropDownColor = widget.iconDropDownColor ?? Theme.of(context).primaryColor;
+    _dropDownStyle = widget.dropDownStyle ??
+        TextStyle(color: Theme.of(context).primaryColor, fontSize: 13);
+    _iconDropDownColor =
+        widget.iconDropDownColor ?? Theme.of(context).primaryColor;
 
     MediaQueryData mediaQuery = MediaQuery.of(context);
     _screenWidth = mediaQuery.size.width;
@@ -116,11 +119,14 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
 
     return GestureDetector(
       onTap: () {
-        final RenderBox? overlay = widget.stackKey.currentContext!.findRenderObject() as RenderBox?;
+        final RenderBox? overlay =
+            widget.stackKey.currentContext!.findRenderObject() as RenderBox?;
 
-        final RenderBox dropDownItemRenderBox = _keyDropDownHeader.currentContext!.findRenderObject() as RenderBox;
+        final RenderBox dropDownItemRenderBox =
+            _keyDropDownHeader.currentContext!.findRenderObject() as RenderBox;
 
-        var position = dropDownItemRenderBox.localToGlobal(Offset.zero, ancestor: overlay);
+        var position =
+            dropDownItemRenderBox.localToGlobal(Offset.zero, ancestor: overlay);
 //        print("POSITION : $position ");
         var size = dropDownItemRenderBox.size;
 //        print("SIZE : $size");
@@ -160,14 +166,18 @@ class _GZXDropDownHeaderState extends State<GZXDropDownHeader> with SingleTicker
                       item.title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: _isShowDropDownItemWidget ? _dropDownStyle : widget.style.merge(item.style),
+                      style: _isShowDropDownItemWidget
+                          ? _dropDownStyle
+                          : widget.style.merge(item.style),
                     ),
                   ),
                   Icon(
                     !_isShowDropDownItemWidget
                         ? item.iconData ?? Icons.arrow_drop_down
                         : item.iconData ?? Icons.arrow_drop_up,
-                    color: _isShowDropDownItemWidget ? _iconDropDownColor : item.style?.color ?? widget.iconColor,
+                    color: _isShowDropDownItemWidget
+                        ? _iconDropDownColor
+                        : item.style?.color ?? widget.iconColor,
                     size: item.iconSize ?? widget.iconSize,
                   ),
                 ],

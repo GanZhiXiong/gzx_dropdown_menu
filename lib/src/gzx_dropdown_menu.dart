@@ -47,7 +47,8 @@ class GZXDropDownMenu extends StatefulWidget {
   _GZXDropDownMenuState createState() => _GZXDropDownMenuState();
 }
 
-class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProviderStateMixin {
+class _GZXDropDownMenuState extends State<GZXDropDownMenu>
+    with SingleTickerProviderStateMixin {
   bool _isShowDropDownItemWidget = false;
   bool _isShowMask = false;
   bool _isControllerDisposed = false;
@@ -66,7 +67,9 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
     super.initState();
 
     widget.controller.addListener(_onController);
-    _controller = new AnimationController(duration: Duration(milliseconds: widget.animationMilliseconds), vsync: this);
+    _controller = new AnimationController(
+        duration: Duration(milliseconds: widget.animationMilliseconds),
+        vsync: this);
   }
 
   _onController() {
@@ -78,7 +81,8 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
 //    print('_GZXDropDownMenuState.build');
-    _controller!.duration = Duration(milliseconds: widget.animationMilliseconds);
+    _controller!.duration =
+        Duration(milliseconds: widget.animationMilliseconds);
     return _buildDropDownWidget();
   }
 
@@ -99,7 +103,8 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
     _isShowDropDownItemWidget = !_isShowDropDownItemWidget;
     if (widget.dropdownMenuChanging != null) {
-      widget.dropdownMenuChanging!(_isShowDropDownItemWidget, _currentMenuIndex);
+      widget.dropdownMenuChanging!(
+          _isShowDropDownItemWidget, _currentMenuIndex);
     }
     if (!_isShowMask) {
       _isShowMask = true;
@@ -109,9 +114,10 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu> with SingleTickerProv
 
     _animation?.removeListener(_animationListener);
     _animation?.removeStatusListener(_animationStatusListener);
-    _animation = new Tween(begin: 0.0, end: _dropDownHeight).animate(_controller!)
-      ..addListener(_animationListener)
-      ..addStatusListener(_animationStatusListener);
+    _animation =
+        new Tween(begin: 0.0, end: _dropDownHeight).animate(_controller!)
+          ..addListener(_animationListener)
+          ..addStatusListener(_animationStatusListener);
 
     if (_isControllerDisposed) return;
 
