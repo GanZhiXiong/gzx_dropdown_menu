@@ -1,3 +1,6 @@
+## [3.0.0+3] - [2021-04-07]
+* Formatting code to increase the score
+
 ## [3.0.0+2] - [2021-04-07]
 * Using trailing commas and Format code
 

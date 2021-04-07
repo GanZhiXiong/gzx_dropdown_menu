@@ -1,6 +1,6 @@
 name: gzx_dropdown_menu
 description: A custom is strong dropdown menu for Flutter. Easy to use and powerful for customization, it's up to you what you want to display in the dropdown menu!
-version: 3.0.0+2
+version: 3.0.0+3
 homepage: https://github.com/GanZhiXiong/gzx_dropdown_menu
 
 environment:
