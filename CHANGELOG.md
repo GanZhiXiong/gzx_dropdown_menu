@@ -1,3 +1,9 @@
+## [3.1.0] - [2021-04-07]
+### ✨ New Features
+* Add iconDropDownData to customize icon when menu is show
+### 🐛 Bug Fixes
+* Fixed the drop down menu not showing fully when the width of the drop down menu is smaller than the width of the screen
+
 ## [3.0.0+3] - [2021-04-07]
 * Formatting code to increase the score
 

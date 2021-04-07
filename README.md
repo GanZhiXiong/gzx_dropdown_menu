@@ -59,7 +59,7 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 打开pubspec.yaml文件
 添加如下代码
 ``` dart
-  gzx_dropdown_menu: ^3.0.0+3
+  gzx_dropdown_menu: ^3.1.0
 ```
 添加后打开Terminal，执行flutter packages get
 
@@ -75,103 +75,117 @@ A custom is strong dropdown menu for Flutter. Easy to use and powerful for custo
 ### GZXDropDownHeader
 **这里要注意了，这些参数不是必须要要写的，我写出来只是让你知道强大的自定义功能，实际上就前面三个参数是必填的**
 ``` dart
-  // 下拉菜单头部
-  GZXDropDownHeader(
-    // 下拉的头部项，目前每一项，只能自定义显示的文字、图标、图标大小修改
-    items: [
-      GZXDropDownHeaderItem(_dropDownHeaderItemStrings[0]),
-      GZXDropDownHeaderItem(_dropDownHeaderItemStrings[1], iconData: Icons.keyboard_arrow_down, iconDropDownData: Icons.keyboard_arrow_up),
-      GZXDropDownHeaderItem(_dropDownHeaderItemStrings[2], style: TextStyle(color: Colors.green)),
-      GZXDropDownHeaderItem(_dropDownHeaderItemStrings[3], iconData: Icons.filter_frames, iconSize: 18),
-    ],
-    // GZXDropDownHeader对应第一父级Stack的key
-    stackKey: _stackKey,
-    // controller用于控制menu的显示或隐藏
-    controller: _dropdownMenuController,
-    // 当点击头部项的事件，在这里可以进行页面跳转或openEndDrawer
-    onItemTap: (index) {
-      if (index == 3) {
-        _scaffoldKey.currentState.openEndDrawer();
-        _dropdownMenuController.hide();
-      }
-    },
-    // 头部的高度
-    height: 40,
-    // 头部背景颜色
-    color: Colors.red,
-    // 头部边框宽度
-    borderWidth: 1,
-    // 头部边框颜色
-    borderColor: Color(0xFFeeede6),
-    // 分割线高度
-    dividerHeight: 20,
-    // 分割线颜色
-    dividerColor: Color(0xFFeeede6),
-    // 文字样式
-    style: TextStyle(color: Color(0xFF666666), fontSize: 13),
-    // 下拉时文字样式
-    dropDownStyle: TextStyle(
-      fontSize: 13,
-      color: Theme.of(context).primaryColor,
+// 下拉菜单头部
+GZXDropDownHeader(
+  // 下拉的头部项，目前每一项，只能自定义显示的文字、图标、图标大小修改
+  items: [
+    GZXDropDownHeaderItem(_dropDownHeaderItemStrings[0]),
+    GZXDropDownHeaderItem(
+      _dropDownHeaderItemStrings[1],
+      iconData: Icons.keyboard_arrow_down,
+      iconDropDownData: Icons.keyboard_arrow_up,
     ),
-    // 图标大小
-    iconSize: 20,
-    // 图标颜色
-    iconColor: Color(0xFFafada7),
-    // 下拉时图标颜色
-    iconDropDownColor: Theme.of(context).primaryColor,
+    GZXDropDownHeaderItem(
+      _dropDownHeaderItemStrings[2],
+      style: TextStyle(color: Colors.green),
+      iconData: Icons.arrow_upward,
+      iconDropDownData: Icons.arrow_downward,
+    ),
+    GZXDropDownHeaderItem(
+      _dropDownHeaderItemStrings[3],
+      iconData: Icons.filter_frames,
+      iconSize: 18,
+    ),
+  ],
+  // GZXDropDownHeader对应第一父级Stack的key
+  stackKey: _stackKey,
+  // controller用于控制menu的显示或隐藏
+  controller: _dropdownMenuController,
+  // 当点击头部项的事件，在这里可以进行页面跳转或openEndDrawer
+  onItemTap: (index) {
+    if (index == 3) {
+      _dropdownMenuController.hide();
+      _scaffoldKey.currentState!.openEndDrawer();
+    }
+  },
+  // 头部的高度
+  height: 40,
+  // 头部背景颜色
+  color: Colors.red,
+  // 头部边框宽度
+  borderWidth: 1,
+  // 头部边框颜色
+  borderColor: Color(0xFFeeede6),
+  // 分割线高度
+  dividerHeight: 20,
+  // 分割线颜色
+  dividerColor: Color(0xFFeeede6),
+  // 文字样式
+  style: TextStyle(color: Color(0xFF666666), fontSize: 14),
+  // 下拉时文字样式
+  dropDownStyle: TextStyle(
+    fontSize: 14,
+    color: Theme.of(context).primaryColor,
   ),
+  // 图标大小
+  iconSize: 20,
+  // 图标颜色
+  iconColor: Color(0xFFafada7),
+  // 下拉时图标颜色
+  iconDropDownColor: Theme.of(context).primaryColor,
+),
 ```
 ### GZXDropDownMenu
 ``` dart
-  // 下拉菜单
-  GZXDropDownMenu(
-    // controller用于控制menu的显示或隐藏
-    controller: _dropdownMenuController,
-    // 下拉菜单显示或隐藏动画时长
-    animationMilliseconds: 500,
-    // 下拉后遮罩颜色
-    maskColor: Colors.red.withOpacity(0.5),
-    dropdownMenuChanging: (isShow, index) {
-      setState(() {
-        _dropdownMenuChange = '(正在${isShow ? '显示' : '隐藏'}$index)';
-        print(_dropdownMenuChange);
-      });
-    },
-    dropdownMenuChanged: (isShow, index) {
-      setState(() {
-        _dropdownMenuChange = '(已经${isShow ? '显示' : '隐藏'}$index)';
-        print(_dropdownMenuChange);
-      });
-    },    
-    // 下拉菜单，高度自定义，你想显示什么就显示什么，完全由你决定，你只需要在选择后调用_dropdownMenuController.hide();即可
-    menus: [
-      GZXDropdownMenuBuilder(
-          dropDownHeight: 40 * 8.0,
-          dropDownWidget: _buildQuanChengWidget((selectValue) {
-            _dropDownHeaderItemStrings[0] = selectValue;
-            _dropdownMenuController.hide();
-            setState(() {});
-          })),
-      GZXDropdownMenuBuilder(
-          dropDownHeight: 40 * 8.0,
-          dropDownWidget: _buildConditionListWidget(_brandSortConditions, (value) {
-            _selectBrandSortCondition = value;
-            _dropDownHeaderItemStrings[1] =
-            _selectBrandSortCondition.name == '全部' ? '品牌' : _selectBrandSortCondition.name;
-            _dropdownMenuController.hide();
-            setState(() {});
-          })),
-      GZXDropdownMenuBuilder(
-          dropDownHeight: 40.0 * _distanceSortConditions.length,
-          dropDownWidget: _buildConditionListWidget(_distanceSortConditions, (value) {
-            _dropDownHeaderItemStrings[2] = _selectDistanceSortCondition.name;
-            _selectDistanceSortCondition = value;
-            _dropdownMenuController.hide();
-            setState(() {});
-          })),
-    ],
-  )
+// 下拉菜单，注意GZXDropDownMenu目前只能在Stack内，后续有时间会改进，以及支持CustomScrollView和NestedScrollView
+GZXDropDownMenu(
+  // controller用于控制menu的显示或隐藏
+  controller: _dropdownMenuController,
+  // 下拉菜单显示或隐藏动画时长
+  animationMilliseconds: 300,
+  // 下拉后遮罩颜色
+  //maskColor: Theme.of(context).primaryColor.withOpacity(0.5),
+  //maskColor: Colors.red.withOpacity(0.5),
+  dropdownMenuChanging: (isShow, index) {
+    setState(() {
+      _dropdownMenuChange = '(正在${isShow ? '显示' : '隐藏'}$index)';
+      print(_dropdownMenuChange);
+    });
+  },
+  dropdownMenuChanged: (isShow, index) {
+    setState(() {
+      _dropdownMenuChange = '(已经${isShow ? '显示' : '隐藏'}$index)';
+      print(_dropdownMenuChange);
+    });
+  },
+  // 下拉菜单，高度自定义，你想显示什么就显示什么，完全由你决定，你只需要在选择后调用_dropdownMenuController.hide();即可
+  menus: [
+    GZXDropdownMenuBuilder(
+        dropDownHeight: 40 * 8.0,
+        dropDownWidget: _buildAddressWidget((selectValue) {
+          _dropDownHeaderItemStrings[0] = selectValue;
+          _dropdownMenuController.hide();
+          setState(() {});
+        })),
+    GZXDropdownMenuBuilder(
+        dropDownHeight: 40 * 8.0,
+        dropDownWidget: _buildConditionListWidget(_brandSortConditions, (value) {
+          _selectBrandSortCondition = value;
+          _dropDownHeaderItemStrings[1] =
+          _selectBrandSortCondition.name == '全部' ? '品牌' : _selectBrandSortCondition.name;
+          _dropdownMenuController.hide();
+          setState(() {});
+        })),
+    GZXDropdownMenuBuilder(
+        dropDownHeight: 40.0 * _distanceSortConditions.length,
+        dropDownWidget: _buildConditionListWidget(_distanceSortConditions, (value) {
+          _selectDistanceSortCondition = value;
+          _dropDownHeaderItemStrings[2] = _selectDistanceSortCondition.name;
+          _dropdownMenuController.hide();
+          setState(() {});
+        })),
+  ],
+),
 ```
 
 # 相关Repository
