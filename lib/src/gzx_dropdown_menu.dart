@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
 
 import 'gzx_dropdown_menu_controller.dart';
 
@@ -24,6 +25,7 @@ class GZXDropDownMenu extends StatefulWidget {
   final List<GZXDropdownMenuBuilder> menus;
   final int animationMilliseconds;
   final Color maskColor;
+  final EdgeInsets margin;
 
   /// Called when dropdown menu start showing or hiding.
   final DropdownMenuChange? dropdownMenuChanging;
@@ -41,6 +43,7 @@ class GZXDropDownMenu extends StatefulWidget {
     this.maskColor = const Color.fromRGBO(0, 0, 0, 0.5),
     this.dropdownMenuChanging,
     this.dropdownMenuChanged,
+    this.margin = EdgeInsets.zero,
   }) : super(key: key);
 
   @override
@@ -61,10 +64,12 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu>
 
   int? _currentMenuIndex;
 
+  late MediaQueryData _mediaQueryData;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    _mediaQueryData = MediaQueryData.fromWindow(ui.window);
 
     widget.controller.addListener(_onController);
     _controller = new AnimationController(
@@ -171,10 +176,9 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu>
           widget.controller.hide();
         },
         child: Container(
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height,
+          width: _mediaQueryData.size.width - widget.margin.left - widget.margin.right,
+          height: _mediaQueryData.size.height,
           color: widget.maskColor.withOpacity(_maskColorOpacity),
-//          color: widget.maskColor,
         ),
       );
     } else {
@@ -191,19 +195,21 @@ class _GZXDropDownMenuState extends State<GZXDropDownMenu>
       return Container();
     }
 
+    double left = widget.margin.left;
+    double top = widget.margin.top;
+    double right = widget.margin.right;
+
     return Positioned(
-        top: widget.controller.dropDownMenuTop,
-        left: 0,
-        right: 0,
-        child: Column(
+        left: left,
+        top: widget.controller.dropDownMenuTop ?? 0 + top,
+        child: Stack(
           children: <Widget>[
+            _mask(),
             Container(
-              color: Colors.white,
-              width: double.infinity,
+              width: _mediaQueryData.size.width - left - right,
               height: _animation == null ? 0 : _animation!.value,
               child: widget.menus[menuIndex].dropDownWidget,
             ),
-            _mask(),
           ],
         ));
   }
