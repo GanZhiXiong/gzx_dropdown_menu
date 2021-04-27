@@ -205,6 +205,7 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
                 print(_dropdownMenuChange);
               });
             },
+            // margin: EdgeInsets.symmetric(horizontal: 16),
             // 下拉菜单，高度自定义，你想显示什么就显示什么，完全由你决定，你只需要在选择后调用_dropdownMenuController.hide();即可
             menus: [
               GZXDropdownMenuBuilder(
@@ -351,16 +352,24 @@ class _GZXDropDownMenuTestPageState extends State<GZXDropDownMenuTestPage> {
   }
 
   _buildConditionListWidget(items, void itemOnTap(SortCondition sortCondition)) {
-    return ListView.separated(
-      shrinkWrap: true,
-      scrollDirection: Axis.vertical,
-      itemCount: items.length,
-      // item 的个数
-      separatorBuilder: (BuildContext context, int index) => Divider(height: 1.0),
-      // 添加分割线
-      itemBuilder: (BuildContext context, int index) {
-        return gestureDetector(items, index, itemOnTap, context);
-      },
+    return Container(
+      // color: Colors.white,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(6), bottomRight: Radius.circular(6)),
+        border: Border.all(width: 0, color: Colors.white),
+      ),
+      child: ListView.separated(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        itemCount: items.length,
+        // item 的个数
+        separatorBuilder: (BuildContext context, int index) => Divider(height: 1.0),
+        // 添加分割线
+        itemBuilder: (BuildContext context, int index) {
+          return gestureDetector(items, index, itemOnTap, context);
+        },
+      ),
     );
   }
 
